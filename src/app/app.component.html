@@ -1,3 +1,40 @@
-<h1>
-  {{title}}
-</h1>
+<div id="header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img class="mainLogo" src="/assets/img/logo.png" alt="The Brothers Locke logo" /> </a>
+      </div>
+
+      <!-- right side navigation
+      this is the main navigation for the website -->
+      <ul class="nav navbar-nav navbar-right">
+        <li (click)="getBottomTray('episodes')"><a>Episodes</a></li>
+        <li><a href="#" routerLink="/about" routerLinkActive="active">About</a></li>
+        <li (click)="getBottomTray('characters')"><a>Characters</a></li>
+        <li><a href="#" routerLink="/profile" routerLinkActive="active">Your Profile</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div id="mainBody">
+
+  <router-outlet></router-outlet>
+
+
+</div>
+
+<div id="mainFooter">
+  <div class="bottomTray">
+    <div class="container">
+      This is the bottom tray
+    </div>
+
+  </div>
+</div>
