@@ -1,6 +1,9 @@
 <div id="mainFooter">
   <div class="bottomTray">
     <div class="containerBottomTray">
+      <div class="titleRow">
+        <p>Episodes</p>
+      </div>
       <!-- start carousel -->
       <div class="row">
 
@@ -10,7 +13,6 @@
               <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
               </ol>
 
               <!-- Carousel items -->
@@ -18,144 +20,43 @@
 
                 <div class="item active">
                   <div class="row-fluid">
-                    <div class="col-sm-6 col-md-3">
+
+                    <div *ngFor="let episode of episodes; let i=index" class="col-sm-6 col-md-3">
+                      <template [ngIf]="i<4">
                       <a href="#x" class="thumbnail">
                         <div class="imageContainer">
                           <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
                         </div>
                         <div class="caption">
-                          <h3>Key of the Spire</h3>
-                          <p>The information about the Key of the Spire, the first object stolen.</p>
+                          <h3>{{episode.id}}: {{episode.title}}</h3>
+                          <p>{{episode.synopsis}}</p>
                         </div>
                       </a>
+                      </template>
                     </div>
-                    <div class="col-sm-6 col-md-3">
-                      <a href="#x" class="thumbnail">
-                        <div class="imageContainer">
-                          <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                        </div>
-                        <div class="caption">
-                          <h3>Key of the Spire</h3>
-                          <p>The information about the Key of the Spire, the first object stolen.</p>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                      <a href="#x" class="thumbnail">
-                        <div class="imageContainer">
-                          <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                        </div>
-                        <div class="caption">
-                          <h3>Key of the Spire</h3>
-                          <p>The information about the Key of the Spire, the first object stolen.</p>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                      <a href="#x" class="thumbnail">
-                        <div class="imageContainer">
-                          <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                        </div>
-                        <div class="caption">
-                          <h3>Key of the Spire</h3>
-                          <p>The information about the Key of the Spire, the first object stolen.</p>
-                        </div>
-                      </a>
-                    </div>
+
                   </div><!--/row-fluid-->
                 </div><!--/item-->
 
                 <div class="item">
                   <div class="row-fluid">
-                    <div class="col-sm-6 col-md-3">
-                      <a href="#x" class="thumbnail">
-                        <div class="imageContainer">
-                          <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                        </div>
-                        <div class="caption">
-                          <h3>Key of the Spire</h3>
-                          <p>The information about the Key of the Spire, the first object stolen.</p>
-                        </div>
-                      </a>
-                    </div><div class="col-sm-6 col-md-3">
-                    <a href="#x" class="thumbnail">
-                      <div class="imageContainer">
-                        <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                      </div>
-                      <div class="caption">
-                        <h3>Key of the Spire</h3>
-                        <p>The information about the Key of the Spire, the first object stolen.</p>
-                      </div>
-                    </a>
-                  </div><div class="col-sm-6 col-md-3">
-                    <a href="#x" class="thumbnail">
-                      <div class="imageContainer">
-                        <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                      </div>
-                      <div class="caption">
-                        <h3>Key of the Spire</h3>
-                        <p>The information about the Key of the Spire, the first object stolen.</p>
-                      </div>
-                    </a>
-                  </div><div class="col-sm-6 col-md-3">
-                    <a href="#x" class="thumbnail">
-                      <div class="imageContainer">
-                        <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                      </div>
-                      <div class="caption">
-                        <h3>Key of the Spire</h3>
-                        <p>The information about the Key of the Spire, the first object stolen.</p>
-                      </div>
-                    </a>
-                  </div>
+                    <div *ngFor="let episode of episodes; let i=index" class="col-sm-6 col-md-3">
+                      <template [ngIf]="i > 3 && i < 8">
+                        <a href="#x" class="thumbnail">
+                          <div class="imageContainer">
+                            <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
+                          </div>
+                          <div class="caption">
+                            <h3>{{episode.id}}: {{episode.title}}</h3>
+                            <p>{{episode.synopsis}}</p>
+                          </div>
+                        </a>
+                      </template>
+                    </div>
                   </div><!--/row-fluid-->
                 </div><!--/item-->
 
-                <div class="item">
-                  <div class="row-fluid">
-                    <div class="col-sm-6 col-md-3">
-                      <a href="#x" class="thumbnail">
-                        <div class="imageContainer">
-                          <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                        </div>
-                        <div class="caption">
-                          <h3>Key of the Spire</h3>
-                          <p>The information about the Key of the Spire, the first object stolen.</p>
-                        </div>
-                      </a>
-                    </div><div class="col-sm-6 col-md-3">
-                    <a href="#x" class="thumbnail">
-                      <div class="imageContainer">
-                        <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                      </div>
-                      <div class="caption">
-                        <h3>Key of the Spire</h3>
-                        <p>The information about the Key of the Spire, the first object stolen.</p>
-                      </div>
-                    </a>
-                  </div><div class="col-sm-6 col-md-3">
-                    <a href="#x" class="thumbnail">
-                      <div class="imageContainer">
-                        <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                      </div>
-                      <div class="caption">
-                        <h3>Key of the Spire</h3>
-                        <p>The information about the Key of the Spire, the first object stolen.</p>
-                      </div>
-                    </a>
-                  </div><div class="col-sm-6 col-md-3">
-                    <a href="#x" class="thumbnail">
-                      <div class="imageContainer">
-                        <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
-                      </div>
-                      <div class="caption">
-                        <h3>Key of the Spire</h3>
-                        <p>The information about the Key of the Spire, the first object stolen.</p>
-                      </div>
-                    </a>
-                  </div>
-                  </div><!--/row-fluid-->
-                </div><!--/item-->
+
 
               </div><!--/carousel-inner-->
 
