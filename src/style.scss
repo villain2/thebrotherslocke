@@ -1,5 +1,5 @@
 body {
-  padding-top: 70px;
+  padding-top: 170px;
   font-family: akrobatregular, sans-serif;
 }
 
@@ -74,8 +74,9 @@ img.mainLogo {
   background: black;
   bottom: 0;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   .container {
+    color: #ffffff;
     margin: 12px 12px;
   }
 }
