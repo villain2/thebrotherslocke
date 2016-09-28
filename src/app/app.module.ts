@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -9,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FooterDirective } from './footer.directive';
 import { FooterComponent } from './footer/footer.component';
+import { EpisodesComponent } from './episodes/episodes.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,14 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ProfileComponent,
     FooterDirective,
-    FooterComponent
+    FooterComponent,
+    EpisodesComponent
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    HttpModule,
+    JsonpModule
   ],
   providers: [
     appRoutingProviders

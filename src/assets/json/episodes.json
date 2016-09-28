@@ -1,0 +1,60 @@
+{
+  "episodes": [
+    {
+      "id": 1,
+      "title": "Solas",
+      "synopsis": "",
+      "thumbnail": "../assets/img/key-of-the-spire.jpg",
+      "KindleLink": ""
+    },
+    {
+      "id": 2,
+      "title": "Dangerous Burdens",
+      "synopsis": "",
+      "thumbnail": "../assets/img/dangerous-burdens.jpg",
+      "KindleLink": ""
+    },
+    {
+      "id": 3,
+      "title": "The Gold of Captain Horsefly",
+      "synopsis": "",
+      "thumbnail": "../assets/img/horsefly-gold.jpg",
+      "KindleLink": ""
+    },
+    {
+      "id": 4,
+      "title": "You Get Soft, You Get Killed",
+      "synopsis": "",
+      "thumbnail": "../assets/img/dana-sharp.jpg",
+      "KindleLink": ""
+    },
+    {
+      "id": 5,
+      "title": "Old Dreams, New Nightmares",
+      "synopsis": "",
+      "thumbnail": "../assets/img/nightmares.jpg",
+      "KindleLink": ""
+    },
+    {
+      "id": 6,
+      "title": "A Heel Among Us",
+      "synopsis": "",
+      "thumbnail": "../assets/img/heel.jpg",
+      "KindleLink": ""
+    },
+    {
+      "id": 7,
+      "title": "Cacoethes",
+      "synopsis": "",
+      "thumbnail": "../assets/img/cacoethes.jpg",
+      "KindleLink": ""
+    },
+    {
+      "id": 8,
+      "title": "Children of the Spire",
+      "synopsis": "",
+      "thumbnail": "../assets/img/children-of-the-spire.jpg",
+      "KindleLink": ""
+    }
+  ]
+}
