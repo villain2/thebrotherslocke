@@ -16,8 +16,8 @@
 .settings/
 
 # misc
-/.sass-cache
-/.sassbuilder-config.json
+/src/.sass-cache
+/src/.sassbuilder-config.json
 /connect.lock
 /coverage/*
 /libpeerconnection.log
