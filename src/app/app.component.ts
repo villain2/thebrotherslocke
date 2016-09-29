@@ -1,5 +1,6 @@
+import {AfterViewInit, ViewChild } from '@angular/core';
 import {Component, OnInit} from '@angular/core';
-
+import { FooterComponent } from './footer/footer.component';
 import './rxjs-operators';
 
 
@@ -7,12 +8,24 @@ import './rxjs-operators';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent
+export class AppComponent implements AfterViewInit
 {
 
-  getBottomTray(type)
+  @ViewChild(FooterComponent)
+
+  private footerComp: FooterComponent;
+
+  ngAfterViewInit ()
   {
-    console.log(type);
+    console.log('open');
   }
+
+  openFooter ()
+  {
+    console.log('open footer');
+    this.footerComp.open('episodes');
+    //this.footerComp.open();
+  }
+
   title = 'The Brothers Locke Website';
 }

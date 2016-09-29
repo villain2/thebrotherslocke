@@ -1,9 +1,9 @@
 <div id="mainFooter">
-  <div class="bottomTray">
+  <div class="bottomTray" [@collapseOut]="stateExpression">
     <div class="containerBottomTray">
       <!-- close button -->
       <div class="closeButton"
-      (click)="collapseTray()">
+      (click)="collapse('episodes')">
         X
       </div>
 

@@ -65,7 +65,7 @@ img.mainLogo {
   width: 100%;
   min-height: 100px;
   background: black;
-  bottom: 0;
+  bottom: -600px;
   z-index: 3;
   position: fixed; }
   .bottomTray .containerBottomTray {
