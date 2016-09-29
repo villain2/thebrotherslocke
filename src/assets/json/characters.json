@@ -1,0 +1,90 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Mouth Locke",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 1
+    },{
+      "id": 2,
+      "name": "Echo Locke",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 1
+    },{
+      "id": 3,
+      "name": "Sharp Locke",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 1
+    },{
+      "id": 4,
+      "name": "Bulk Brown",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 2
+    },{
+      "id": 5,
+      "name": "Dana Strand",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 2
+    },{
+      "id": 6,
+      "name": "Von Strauss",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 6
+    },{
+      "id": 7,
+      "name": "Bando",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 2
+    },{
+      "id": 8,
+      "name": "Sim Sam",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 3
+    },{
+      "id": 9,
+      "name": "Captain Horsefly",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 5
+    },{
+      "id": 10,
+      "name": "Doctor Psi",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 4
+    },{
+      "id": 11,
+      "name": "No One",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 4
+    },
+    {
+      "id": 12,
+      "name": "Officer Perry",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 3
+    }
+  ]
+}
