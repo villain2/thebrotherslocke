@@ -81,4 +81,109 @@
     </div>
 
   </div>
+
+
+
+  <!-- CHARACTERS -->
+  <div class="bottomTray" [@collapseCharacters]="stateExpression">
+    <div class="containerBottomTray">
+      <!-- close button -->
+      <div class="closeButton"
+           (click)="collapseCharacters()">
+        X
+      </div>
+
+      <!-- title for the slider -->
+      <div class="titleRow">
+        <p>Characters</p>
+      </div>
+      <!-- start carousel -->
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="containerBottomTray">
+            <div id="characterCarousel" class="carousel slide">
+              <ol class="carousel-indicators">
+                <li data-target="#characterCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#characterCarousel" data-slide-to="1"></li>
+                <li data-target="#characterCarousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Carousel items -->
+              <div class="carousel-inner">
+
+                <div class="item active">
+                  <div class="row-fluid">
+
+                    <div *ngFor="let character of characters; let i=index" class="col-sm-6 col-md-3">
+                      <template [ngIf]="i<4">
+                        <a href="#x" class="thumbnail">
+                          <div class="imageContainer">
+                            <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
+                          </div>
+                          <div class="caption">
+                            <h3>{{character.name}}</h3>
+                            <p>{{character.description}}</p>
+                          </div>
+                        </a>
+                      </template>
+                    </div>
+
+                  </div><!--/row-fluid-->
+                </div><!--/item-->
+
+                <div class="item">
+                  <div class="row-fluid">
+                    <div *ngFor="let character of characters; let i=index" class="col-sm-6 col-md-3">
+                      <template [ngIf]="i > 3 && i < 8">
+                        <a href="#x" class="thumbnail">
+                          <div class="imageContainer">
+                            <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
+                          </div>
+                          <div class="caption">
+                            <h3>{{character.name}}</h3>
+                            <p>{{character.description}}</p>
+                          </div>
+                        </a>
+                      </template>
+                    </div>
+                  </div><!--/row-fluid-->
+                </div><!--/item-->
+
+                <div class="item">
+                  <div class="row-fluid">
+                    <div *ngFor="let character of characters; let i=index" class="col-sm-6 col-md-3">
+                      <template [ngIf]="i > 7 && i < 12">
+                        <a href="#x" class="thumbnail">
+                          <div class="imageContainer">
+                            <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
+                          </div>
+                          <div class="caption">
+                            <h3>{{character.name}}</h3>
+                            <p>{{character.description}}</p>
+                          </div>
+                        </a>
+                      </template>
+                    </div>
+                  </div><!--/row-fluid-->
+                </div><!--/item-->
+
+
+
+              </div><!--/carousel-inner-->
+
+              <a class="left carousel-control" href="#characterCarousel" data-slide="prev">
+                <div class="cButtonLeft"></div>
+              </a>
+              <a class="right carousel-control" href="#characterCarousel" data-slide="next">
+                <div class="cButtonRight"></div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -1,11 +1,15 @@
 import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
 import { Episode } from '../episodes/episode';
 import { EpisodesService } from '../episodes.service';
+import { Character } from '../characters/character';
+import { CharactersService } from '../characters.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  providers: [ EpisodesService ],
+  providers: [
+    EpisodesService,
+    CharactersService ],
   animations: [
     trigger('collapseOut', [
       state('collapsed, void', style({
@@ -14,22 +18,35 @@ import { EpisodesService } from '../episodes.service';
       state('open', style({
         bottom: '0px'
       })),
-      transition('collapsed => open', animate('0.75s cubic-bezier(0.785, 0.135, 0.15, 0.86)')),
-      transition('open => collapsed', animate('0.75s cubic-bezier(0.785, 0.135, 0.15, 0.86)'))
+      transition('collapsed => open', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)')),
+      transition('open => collapsed', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)'))
+    ]),
+    trigger('collapseCharacters', [
+      state('collapsec, void', style({
+        bottom: '-600px'
+      })),
+      state('openc', style({
+        bottom: '0px'
+      })),
+      transition('collapsec => openc', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)')),
+      transition('openc => collapsec', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)'))
     ])
   ]
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private _episodeService: EpisodesService) { }
+  constructor(private _episodeService: EpisodesService,
+              private _characterService: CharactersService) { }
 
   errorMessage: String;
   episodes:Episode[];
+  characters:Character[]
   episodeImageMargin: Number;
   stateExpression: String;
 
   ngOnInit() {
     this.getEpisodes();
+    this.getCharacters();
     this.episodeImageMargin = 200;
   }
 
@@ -38,6 +55,15 @@ export class FooterComponent implements OnInit {
     this._episodeService.getEpisodes()
       .subscribe(
         episodes => this.episodes = episodes,
+        error => this.errorMessage = <any>error
+      );
+  }
+
+  getCharacters()
+  {
+    this._characterService.getCharacters()
+      .subscribe(
+        characters => this.characters = characters,
         error => this.errorMessage = <any>error
       );
   }
@@ -52,6 +78,18 @@ export class FooterComponent implements OnInit {
   {
     console.log('open tray: ' + tray);
     this.stateExpression = 'open';
+  }
+
+  collapseCharacters ()
+  {
+    console.log('collpase characters');
+    this.stateExpression  = 'collapsec';
+  }
+
+  openCharacters ()
+  {
+    console.log('open characters');
+    this.stateExpression = 'openc';
   }
 
 }

@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FooterDirective } from './footer.directive';
 import { FooterComponent } from './footer/footer.component';
 import { EpisodesComponent } from './episodes/episodes.component';
+import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EpisodesComponent } from './episodes/episodes.component';
     ProfileComponent,
     FooterDirective,
     FooterComponent,
-    EpisodesComponent
+    EpisodesComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,

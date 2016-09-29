@@ -20,11 +20,17 @@ export class AppComponent implements AfterViewInit
     console.log('open');
   }
 
-  openFooter ()
+  openEpisodes ()
   {
     console.log('open footer');
     this.footerComp.open('episodes');
     //this.footerComp.open();
+  }
+
+  openCharacters ()
+  {
+    console.log('open characters');
+    this.footerComp.openCharacters();
   }
 
   title = 'The Brothers Locke Website';
