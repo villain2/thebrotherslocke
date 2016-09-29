@@ -85,6 +85,12 @@ img.mainLogo {
 }
 
 .bottomTray {
+  width: 100%;
+  min-height: 100px;
+  background: black;
+  bottom: -600px;
+  z-index: 3;
+  position: fixed;
   .containerBottomTray {
     padding: 20px;
     .closeButton {
@@ -114,12 +120,6 @@ img.mainLogo {
       }
     }
   }
-  width: 100%;
-  min-height: 100px;
-  background: black;
-  bottom: 0;
-  z-index: 3;
-  position: fixed;
   .container {
     color: #ffffff;
     margin: 12px 12px;
