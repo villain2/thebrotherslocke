@@ -1,4 +1,3 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\000031}}
 body {
   padding-top: 170px;
   font-family: akrobatregular, sans-serif; }
@@ -9,14 +8,12 @@ body {
   src: url("assets/fonts/akrobat-regular-webfont.woff2") format("woff2"), url("/assets/fonts/akrobat-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000317}}
+
 #header .navbar-default {
   background: none;
   border: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000320}}
   #header .navbar-default .navbar-nav > li {
     cursor: pointer; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000323}}
   #header .navbar-default .navbar-nav > li > a {
     color: #602828;
     font-family: akrobatregular, sans-serif;
@@ -24,13 +21,11 @@ body {
     font-weight: bold;
     -webkit-transition: all .5s;
     transition: all .50s; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000330}}
     #header .navbar-default .navbar-nav > li > a:hover {
       color: white;
       border-bottom: 1px solid #ffffff; }
 
 /** main page **/
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000339}}
 .mainPageBackground img.bg {
   min-height: 100%;
   min-width: 1024px;
@@ -40,40 +35,32 @@ body {
   top: 0;
   left: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000351}}
 img.mainLogo {
   margin: -15px 0 0 0;
   cursor: pointer; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000356}}
 .mainPageText {
   z-index: 2;
   position: absolute;
   padding: 20px 0 0 80px;
   width: 50%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000361}}
   .mainPageText h1, .mainPageText p {
     text-shadow: 2px 2px #000;
     color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000365}}
   .mainPageText h1 {
     font-size: 4.25em;
     font-weight: 900; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000369}}
   .mainPageText p {
     font-size: 1.515em; }
 
 /** bottom tray **/
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000378}}
 .thumbnail {
   height: 225px;
   background: #25414c;
   border: 1px solid #602828; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000382}}
   .thumbnail h1, .thumbnail h3, .thumbnail p {
     color: white; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000387}}
 .bottomTray {
   width: 100%;
   min-height: 100px;
@@ -81,18 +68,23 @@ img.mainLogo {
   bottom: 0;
   z-index: 3;
   position: fixed; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000388}}
   .bottomTray .containerBottomTray {
     padding: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000390}}
+    .bottomTray .containerBottomTray .closeButton {
+      z-index: 10;
+      position: fixed;
+      color: white;
+      cursor: pointer;
+      margin: -20px 0 0 -13px; }
+      .bottomTray .containerBottomTray .closeButton:hover {
+        color: lawngreen; }
     .bottomTray .containerBottomTray .titleRow {
-      width: 100%;
+      width: 110%;
       background: #b22222;
       color: white;
       text-align: center;
-      margin: -20px 0 10px;
+      margin: -20px 0 10px -20px;
       padding: 8px 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\0000397}}
       .bottomTray .containerBottomTray .titleRow p {
         z-index: 2;
         position: absolute;
@@ -100,17 +92,14 @@ img.mainLogo {
         width: 100%;
         text-align: center;
         margin-top: -12px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003113}}
   .bottomTray .container {
     color: #ffffff;
     margin: 12px 12px;
     color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003118}}
   .bottomTray .imageContainer {
     width: 100%;
     height: 80px;
     overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003122}}
     .bottomTray .imageContainer img.bottomTrayThumb {
       width: 100%;
       height: auto;
@@ -118,22 +107,18 @@ img.mainLogo {
       margin-top: -50px; }
 
 /* Removes the default 20px margin and creates some padding space for the indicators and controls */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003132}}
 .carousel {
   margin-bottom: 0;
   padding: 0 40px 30px 40px; }
 
 /* Reposition the controls slightly */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003137}}
 .carousel-control {
   left: -12px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003140}}
 .carousel-control.right {
   right: -12px; }
 
 /* Changes the position of the indicators */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003144}}
 .carousel-indicators {
   right: 50%;
   top: auto;
@@ -141,15 +126,12 @@ img.mainLogo {
   margin-right: -19px; }
 
 /* Changes the colour of the indicators */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003151}}
 .carousel-indicators li {
   background: #c0c0c0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003154}}
 .carousel-indicators .active {
   background: #333333; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003158}}
 .cButtonLeft, .cButtonRight {
   background: url("/assets/img/sprite-sheet.png") no-repeat top;
   background-position: 0 0;
@@ -157,27 +139,21 @@ img.mainLogo {
   height: 60px;
   display: block;
   margin-top: 40%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003165}}
   .cButtonLeft:hover, .cButtonRight:hover {
     background-position: 0 -60px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003168}}
   .cButtonLeft:active, .cButtonRight:active {
     background-position: 0 -120px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003173}}
 .cButtonRight {
   margin-left: 75%;
   background-position: -60px 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003176}}
   .cButtonRight:hover {
     background-position: -60px -60px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003179}}
   .cButtonRight:active {
     background-position: -60px -120px; }
 
 /** media queries **/
 @media screen and (max-width: 1024px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/_projects\/thebrotherslocke\/src\/style\.scss}line{font-family:\00003192}}
   .mainPageBackground img.bg {
     left: 50%;
     margin-left: -512px;

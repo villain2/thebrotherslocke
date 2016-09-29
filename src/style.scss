@@ -87,12 +87,22 @@ img.mainLogo {
 .bottomTray {
   .containerBottomTray {
     padding: 20px;
+    .closeButton {
+      z-index: 10;
+      position: fixed;
+      color: white;
+      cursor: pointer;
+      margin: -20px 0 0 -13px;
+      &:hover {
+        color: lawngreen;
+      }
+    }
     .titleRow {
-      width: 100%;
+      width: 110%;
       background: #b22222;
       color: white;
       text-align: center;
-      margin: -20px 0 10px;
+      margin: -20px 0 10px -20px;
       padding: 8px 0;
       p {
         z-index: 2;
