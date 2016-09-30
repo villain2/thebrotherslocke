@@ -12,6 +12,7 @@ import { FooterDirective } from './footer.directive';
 import { FooterComponent } from './footer/footer.component';
 import { EpisodesComponent } from './episodes/episodes.component';
 import { CharactersComponent } from './characters/characters.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CharactersComponent } from './characters/characters.component';
     FooterDirective,
     FooterComponent,
     EpisodesComponent,
-    CharactersComponent
+    CharactersComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
