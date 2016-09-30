@@ -1,4 +1,4 @@
-<div #controlSidebar class="controlsSidebar" on-mouseover="over()">
+<div #controlSidebar class="controlsSidebar" on-mouseover="over()" on-mouseleave="out()" [@collapseOut]="stateExpression">
   <h1>Items Found: 0</h1>
   <ul>
     <li data-type="key">Key of the Spire</li>

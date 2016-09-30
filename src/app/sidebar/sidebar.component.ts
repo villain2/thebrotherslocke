@@ -1,8 +1,20 @@
-import {Component, OnInit, ElementRef, ViewChild, Renderer} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Renderer, trigger, state, style, transition, animate} from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html'
+  templateUrl: './sidebar.component.html',
+  animations:[
+    trigger('collapseOut', [
+      state('collapsed, void', style({
+        right: '-183px'
+      })),
+      state('open', style({
+        right: '0px'
+      })),
+      transition('collapsed => open', animate('0.5s 0.5s cubic-bezier(0.77, 0, 0.175, 1)')),
+      transition('open => collapsed', animate('0.5s 2s cubic-bezier(0.77, 0, 0.175, 1)'))
+    ])
+  ]
 })
 export class SidebarComponent implements OnInit
 {
@@ -12,23 +24,33 @@ export class SidebarComponent implements OnInit
 
   private expanded: boolean;
   public sidebarObj: any;
+  stateExpression: String;
 
   ngOnInit() {
     this.expanded  = false;
   }
 
 
+
   private over ()
   {
-    console.log(this);
     this.sidebarObj    = this.input.nativeElement;
-    console.log(this.sidebarObj);
 
     //check if the sidebar is expanded or not
     if(!this.expanded)
     {
-
+      //this.sidebarObj.setAttribute("style", "right: 0;");
+      this.expanded   = true;
+      this.stateExpression  = 'open';
     }
+  }
+
+  private out ()
+  {
+    console.log('mouse out');
+    this.expanded   = false;
+    //this.sidebarObj.setAttribute("style", "right: -183px");
+    this.stateExpression  = 'collapsed';
   }
 
 }

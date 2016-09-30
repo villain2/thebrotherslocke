@@ -18,8 +18,8 @@ import { CharactersService } from '../characters.service';
       state('open', style({
         bottom: '0px'
       })),
-      transition('collapsed => open', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)')),
-      transition('open => collapsed', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)'))
+      transition('collapsed => open', animate('0.75s 0.1s cubic-bezier(0.77, 0, 0.175, 1)')),
+      transition('open => collapsed', animate('0.75s 0.1s cubic-bezier(0.77, 0, 0.175, 1)'))
     ]),
     trigger('collapseCharacters', [
       state('collapsec, void', style({
@@ -28,8 +28,8 @@ import { CharactersService } from '../characters.service';
       state('openc', style({
         bottom: '0px'
       })),
-      transition('collapsec => openc', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)')),
-      transition('openc => collapsec', animate('0.75s 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)'))
+      transition('collapsec => openc', animate('0.75s 0.1s cubic-bezier(0.77, 0, 0.175, 1)')),
+      transition('openc => collapsec', animate('0.75s 0.1s cubic-bezier(0.77, 0, 0.175, 1)'))
     ])
   ]
 })

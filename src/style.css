@@ -1,6 +1,7 @@
 body {
   padding-top: 170px;
-  font-family: akrobatregular, sans-serif; }
+  font-family: akrobatregular, sans-serif;
+  overflow: hidden; }
 
 /* fonts */
 @font-face {
