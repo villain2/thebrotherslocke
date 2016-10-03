@@ -216,6 +216,22 @@ img.mainLogo {
   -webkit-box-shadow: 0 0 5px 2px #000;
   box-shadow: 0 0 5px 2px #000;
 
+  .openMenuBtn, .closeMenuBtn {
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: white;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    font-size: 3.55em;
+    margin: -18px 0 0 4px;
+    &:hover {
+      cursor: pointer;
+      color: green;
+    }
+  }
+
   h1 {
     color: #ffffff;
     font-size: 18px;

@@ -175,6 +175,19 @@ img.mainLogo {
   -moz-box-shadow: 0 0 5px 2px #000;
   -webkit-box-shadow: 0 0 5px 2px #000;
   box-shadow: 0 0 5px 2px #000; }
+  .controlsSidebar .openMenuBtn, .controlsSidebar .closeMenuBtn {
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: white;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    font-size: 3.55em;
+    margin: -18px 0 0 4px; }
+    .controlsSidebar .openMenuBtn:hover, .controlsSidebar .closeMenuBtn:hover {
+      cursor: pointer;
+      color: green; }
   .controlsSidebar h1 {
     color: #ffffff;
     font-size: 18px;
