@@ -17,7 +17,7 @@ import {Component, OnInit, ElementRef, ViewChild, Renderer, trigger, state, styl
       transition('collapsed => indicate', animate('0.5s 0.5s cubic-bezier(0.77, 0, 0.175, 1)')),
       transition('indicate => collapsed', animate('0.5s 0.5s cubic-bezier(0.77, 0, 0.175, 1)')),
       transition('collapsed => open', animate('0.5s 0.5s cubic-bezier(0.77, 0, 0.175, 1)')),
-      transition('open => collapsed', animate('0.5s 2s cubic-bezier(0.77, 0, 0.175, 1)'))
+      transition('open => collapsed', animate('0.5s 0.5s cubic-bezier(0.77, 0, 0.175, 1)'))
     ])
   ]
 })
@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit
     if(!this.expanded)
     {
       //this.sidebarObj.setAttribute("style", "right: 0;");
-      this.expanded   = true;
+      this.expanded   = false;
       this.stateExpression  = 'indicate';
     }
   }

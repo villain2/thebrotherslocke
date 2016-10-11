@@ -1,6 +1,6 @@
-<div #controlSidebar class="controlsSidebar" on-mouseover="over()" on-mouseleave="out()" [@collapseOut]="stateExpression">
-  <div class="openMenuBtn" (click)="sideTrayOpen()">=</div>
-  <div class="closeMenuBtn" (click)="sideTrayClose()">x</div>
+<div #controlSidebar class="controlsSidebar" [@collapseOut]="stateExpression">
+  <div *ngIf="!expanded" class="openMenuBtn display" (click)="sideTrayOpen()" role="button"></div>
+  <div *ngIf="expanded" class="closeMenuBtn display" (click)="sideTrayClose()" role="button"></div>
   <h1>Items Found: 0</h1>
   <ul>
     <li data-type="key">Key of the Spire</li>
