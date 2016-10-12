@@ -85,6 +85,23 @@
       "biography": "",
       "thumbnail": "",
       "affiliation": 3
+    },
+    {
+      "id": 13,
+      "name": "Jocelyn",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 1
+    },
+    {
+      "id": 14,
+      "name": "Kale",
+      "description": "",
+      "biography": "",
+      "thumbnail": "",
+      "affiliation": 1
     }
+
   ]
 }
