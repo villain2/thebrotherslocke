@@ -26,6 +26,30 @@ body {
       color: white;
       border-bottom: 1px solid #ffffff; }
 
+.mainSocialLinks {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  margin-top: 90px;
+  margin-left: -38px; }
+  .mainSocialLinks ul li {
+    display: inline-block; }
+    .mainSocialLinks ul li a {
+      width: 32px;
+      height: 32px;
+      display: block;
+      color: white;
+      margin-left: 8px;
+      cursor: pointer; }
+  .mainSocialLinks .facebookBtn {
+    background: url("assets/img/social-icons/02_facebook.png") no-repeat top; }
+  .mainSocialLinks .googlePlusBtn {
+    background: url("assets/img/social-icons/14_google+.png") no-repeat top; }
+  .mainSocialLinks .twitterBtn {
+    background: url("assets/img/social-icons/01_twitter.png") no-repeat top; }
+  .mainSocialLinks .instagramBtn {
+    background: url("assets/img/social-icons/10_instagram.png") no-repeat top; }
+
 /** main page **/
 .mainPageBackground img.bg {
   min-height: 100%;
@@ -40,19 +64,30 @@ img.mainLogo {
   margin: -15px 0 0 0;
   cursor: pointer; }
 
-.mainPageText {
+.mainPageText, .aboutPageText {
   z-index: 2;
   position: absolute;
   padding: 20px 0 0 80px;
   width: 50%; }
-  .mainPageText h1, .mainPageText p {
+  .mainPageText h1, .mainPageText p, .aboutPageText h1, .aboutPageText p {
     text-shadow: 2px 2px #000;
     color: white; }
-  .mainPageText h1 {
+  .mainPageText h1, .mainPageText h2, .aboutPageText h1, .aboutPageText h2 {
     font-size: 4.25em;
     font-weight: 900; }
-  .mainPageText p {
+  .mainPageText h2, .aboutPageText h2 {
+    font-size: 3.055em;
+    color: #f2f3f5;
+    border-bottom: 1px solid grey; }
+  .mainPageText p, .aboutPageText p {
     font-size: 1.515em; }
+
+.aboutPageText {
+  width: 97%;
+  overflow-y: auto;
+  height: 400px; }
+  .aboutPageText p {
+    padding-right: 12px; }
 
 /** bottom tray **/
 .thumbnail {

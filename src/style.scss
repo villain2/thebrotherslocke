@@ -40,6 +40,41 @@ body {
   }
 }
 
+
+.mainSocialLinks {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  margin-top: 90px;
+  margin-left: -38px;
+  ul {
+    li {
+      display: inline-block;
+      a {
+        width: 32px;
+        height: 32px;
+        display: block;
+        color: white;
+        margin-left: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .facebookBtn {
+    background: url("assets/img/social-icons/02_facebook.png") no-repeat top;
+  }
+  .googlePlusBtn {
+    background: url("assets/img/social-icons/14_google+.png") no-repeat top;
+  }
+  .twitterBtn {
+    background: url("assets/img/social-icons/01_twitter.png") no-repeat top;
+  }
+  .instagramBtn {
+    background: url("assets/img/social-icons/10_instagram.png") no-repeat top;
+  }
+}
+
 /** main page **/
 .mainPageBackground img.bg{
   min-height: 100%;
@@ -58,7 +93,7 @@ img.mainLogo {
   cursor: pointer;
 }
 
-.mainPageText {
+.mainPageText, .aboutPageText {
   z-index: 2;
   position: absolute;
   padding: 20px 0 0 80px;
@@ -67,13 +102,27 @@ img.mainLogo {
     text-shadow: 2px 2px #000;
     color: white;
   }
-  h1 {
+  h1, h2 {
     font-size: 4.25em;
     font-weight: 900;
+  }
+  h2 {
+    font-size: 3.055em;
+    color: #f2f3f5;
+    border-bottom: 1px solid grey;
   }
   p {
     font-size: 1.515em;
 
+  }
+}
+
+.aboutPageText {
+  width: 97%;
+  overflow-y: auto;
+  height: 400px;
+  p {
+    padding-right: 12px;
   }
 }
 
