@@ -6,7 +6,16 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="978190903491-c8vbtvmb7kgvqcd69hrv92e9gusmgie1.apps.googleusercontent.com">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async></script>
+
+  <script>
+    window.onLoadCallback = function() {
+      console.log("working");
+    }
+  </script>
 
 </head>
 <body>
@@ -14,13 +23,13 @@
 </body>
 
 <script>
-  window.fbAsyncInit = function() {
+  /*window.fbAsyncInit = function() {
     FB.init({
       appId      : '1111081642294428',
       xfbml      : true,
       version    : 'v2.8'
     });
-  };
+  };*/
 
   (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];

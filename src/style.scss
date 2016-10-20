@@ -75,6 +75,34 @@ body {
   }
 }
 
+
+/** login page **/
+
+
+.loginBtn {
+  color: white;
+  &.facebook, &.googlePlus, &.twitter {
+    background: url("assets/img/buttons/02_facebook.png") no-repeat top;
+    display: block;
+    width: 64px;
+    height: 64px;
+    padding-top: 70px;
+    text-align: center;
+    @include gTransition();
+    &:hover {
+      text-decoration: underline;
+      color: aquamarine;
+    }
+  }
+  &.googlePlus {
+    background: url("assets/img/buttons/14_google+.png") no-repeat top;
+  }
+  &.twitter {
+    background: url("assets/img/buttons/01_twitter.png") no-repeat top;
+  }
+}
+/** end login page **/
+
 /** main page **/
 .mainPageBackground img.bg{
   min-height: 100%;
@@ -93,7 +121,7 @@ img.mainLogo {
   cursor: pointer;
 }
 
-.mainPageText, .aboutPageText {
+.mainPageText, .aboutPageText, .profilePage {
   z-index: 2;
   position: absolute;
   padding: 20px 0 0 80px;

@@ -4,6 +4,9 @@ import { FooterComponent } from './footer/footer.component';
 import './rxjs-operators';
 
 
+declare const FB: any;
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'

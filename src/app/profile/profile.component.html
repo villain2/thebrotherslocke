@@ -2,11 +2,28 @@
   <img class="bg" src="assets/img/hero1.jpg" />
 </div>
 
-<div class="aboutPageText" id="scrollText">
-  <h1>Your Profile</h1>
-  <h2>Progress: {{progress}}</h2>
-  <h2>User name: {{user.name}}</h2>
+<div class="profilePage">
+
+  <div *ngIf="loginPanel">
+
+    <div id="my-signin2"></div>
+
+    <h2>User name: {{user.name}}</h2>
+    <h1>Login to Your Profile Using:</h1>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="loginBtn facebook" role="button" (click)="facebookLoginClickHandler()">Facebook</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="userLogged">
+
+    <h1>Your Profile</h1>
+    <h2>User name: {{user.name}}</h2>
+    <img src="{{user.picture.data.url}}" alt="User Picture"
+         width="{{user.picture.data.width}}" height="{{user.picture.data.height}}" />
+  </div>
+
 </div>
-
-
-

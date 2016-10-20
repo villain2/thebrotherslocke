@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, NgZone, AfterViewInit } from '@angular/core';
 
 declare const FB: any;
 
@@ -7,89 +7,103 @@ declare const FB: any;
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements AfterViewInit {
 
   token: any;
-  logged: boolean   = false;
-  user  = { name: 'Your Name'};
-  progress: number  = 0;
+  logged: boolean         = false;
+  user                    = { name: 'Your Name'};
+  progress: number        = 0;
+  loginPanel: boolean     = false;
+  userLogged: boolean     = false;
+  storedFB: any;
 
-  constructor(private _ngZone: NgZone) { }
+  constructor(private _ngZone: NgZone) {
+    FB.init({
+      appId      : '1111081642294428',
+      cookie     : false,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
 
-  statusChangeCallback ( response: any)
+    console.log(this);
+  }
+
+  facebookLoginClickHandler ()
   {
-    if(response.status === 'connected')
+    FB.login(response => {
+      this.statusChangeCallback(response);
+    });
+  }
+
+  updated(doneCallback: () => void)
+  {
+    var self = this;
+    FB.api('/me?fields=id,name,first_name,gender,picture.width(150).height(150),age_range,friends',
+      function(result) {
+        if (result && !result.error) {
+          this.user = result;
+          console.log(result);
+          localStorage.setItem("user", JSON.stringify(this.user));
+          console.log(localStorage);
+          return this.user;
+        } else {
+          console.log(result.error);
+        }
+      });
+    doneCallback();
+  }
+
+  statusChangeCallback ( resp )
+  {
+    if(resp.status === 'connected')
     {
-      console.log('connected');
+      //connect here with your serer for facebook login by passing access token given by facebbok
+      this.loginPanel     = false;
+      this.userLogged     = true;
 
       this._ngZone.runOutsideAngular(() => {
-        this._increaseProgress(() => {
-          // reenter the Angular zone and display done
-          console.log('increase progress');
-          this._ngZone.run(() => {
-            console.log('Outside Done!')
+
+        this.updated(() => {
+          this._ngZone.run(() =>
+          {
+            console.log('OUTSIDE DONE');
+            this.storedFB    = JSON.parse(localStorage.getItem("user"));
+            console.log(this.storedFB);
+
+            this.user     = this.storedFB;
           });
         })
-      });
-
-
-      this._ngZone.run(() => {
-        this.me();
-      });
+      })
+    }
+    else if( resp.status === 'not_authorized')
+    {
+      console.log('not authorized');
     }
     else
     {
-      this.login();
+      console.log('not logged');
+      this.loginPanel     = true;
     }
-  }
+  };
 
-  _increaseProgress(callback)
+  checkForLogin ()
   {
-    this.progress += 1;
-
-
-    FB.api('/me?fields=id,name,first_name,gender,picture.width(150).height(150),age_range,friends',
-      function(result) {
-        if (result && !result.error) {
-          this.user = result;
-          console.log(this.user);
-        } else {
-          console.log(result.error);
-        }
-      });
-
-    console.log(this.user);
-    console.log('progress: ' + this.progress);
-
-  }
-
-
-  login ()
-  {
-    FB.login((result: any) => {
-      this.logged = true;
-      this.token = result;
-    }, { scope: 'user_friends' });
-  }
-
-  me() {
-    FB.api('/me?fields=id,name,first_name,gender,picture.width(150).height(150),age_range,friends',
-      function(result) {
-        if (result && !result.error) {
-          this.user = result;
-          console.log(this.user);
-          console.log(this.logged);
-        } else {
-          console.log(result.error);
-        }
-      });
-  }
-
-
-  ngOnInit() {
     FB.getLoginStatus(response => {
       this.statusChangeCallback(response);
     });
   }
 
+
+  login ()
+  {
+    var self  = this;
+    FB.login((result: any) => {
+      self.logged = true;
+      self.token = result;
+    }, { scope: 'user_friends' });
+  }
+
+  ngAfterViewInit() {
+    this.checkForLogin();
+  }
 }
