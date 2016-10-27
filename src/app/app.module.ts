@@ -11,7 +11,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { FooterDirective } from './footer.directive';
 import { FooterComponent } from './footer/footer.component';
 import { EpisodesComponent } from './episodes/episodes.component';
+import { EpisodesDetailsComponent } from './episodes/episodes.details.component';
 import { CharactersComponent } from './characters/characters.component';
+import { CharactersDetailsComponent } from './characters/characters.details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
@@ -23,7 +25,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterDirective,
     FooterComponent,
     EpisodesComponent,
+    EpisodesDetailsComponent,
     CharactersComponent,
+    CharactersDetailsComponent,
     SidebarComponent
   ],
   imports: [

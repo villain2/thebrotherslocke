@@ -162,7 +162,13 @@ img.mainLogo {
   background: #25414c;
   border: 1px solid #602828;
   h1, h3, p {
+    color: #f3f4f5;
+  }
+  &:hover {
+    text-decoration: none;
     color: white;
+    cursor: pointer;
+    border-color: red;
   }
 }
 

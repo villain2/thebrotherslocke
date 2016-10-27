@@ -50,6 +50,18 @@ export class FooterComponent implements OnInit {
     this.episodeImageMargin = 200;
   }
 
+  showEpisode(epID)
+  {
+    //collapse tray
+    this.collapse('episodes');
+  }
+
+  showCharacter(cID)
+  {
+    //collapse tray
+    this.collapseCharacters();
+  }
+
   getEpisodes()
   {
     this._episodeService.getEpisodes()

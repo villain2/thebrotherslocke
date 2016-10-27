@@ -116,7 +116,12 @@ img.mainLogo {
   background: #25414c;
   border: 1px solid #602828; }
   .thumbnail h1, .thumbnail h3, .thumbnail p {
-    color: white; }
+    color: #f3f4f5; }
+  .thumbnail:hover {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-color: red; }
 
 .bottomTray {
   width: 100%;

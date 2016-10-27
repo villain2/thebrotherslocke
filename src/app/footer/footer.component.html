@@ -30,7 +30,7 @@
 
                     <div *ngFor="let episode of episodes; let i=index" class="col-sm-6 col-md-3">
                       <template [ngIf]="i<4">
-                      <a href="#x" class="thumbnail">
+                      <div (click)="showEpisode(i)" [routerLink]="['/episodes/', i]" class="thumbnail">
                         <div class="imageContainer">
                           <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
                         </div>
@@ -38,7 +38,7 @@
                           <h3>{{episode.id}}: {{episode.title}}</h3>
                           <p>{{episode.synopsis}}</p>
                         </div>
-                      </a>
+                      </div>
                       </template>
                     </div>
 
@@ -49,7 +49,7 @@
                   <div class="row-fluid">
                     <div *ngFor="let episode of episodes; let i=index" class="col-sm-6 col-md-3">
                       <template [ngIf]="i > 3 && i < 8">
-                        <a href="#x" class="thumbnail">
+                        <div (click)="showEpisode(i)" [routerLink]="['/episodes/', i]" class="thumbnail">
                           <div class="imageContainer">
                             <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
                           </div>
@@ -57,7 +57,7 @@
                             <h3>{{episode.id}}: {{episode.title}}</h3>
                             <p>{{episode.synopsis}}</p>
                           </div>
-                        </a>
+                        </div>
                       </template>
                     </div>
                   </div><!--/row-fluid-->
@@ -118,7 +118,7 @@
 
                     <div *ngFor="let character of characters; let i=index" class="col-sm-6 col-md-3">
                       <template [ngIf]="i<4">
-                        <a href="#x" class="thumbnail">
+                        <div (click)="showCharacter(i)" [routerLink]="['/characters/', i]" class="thumbnail">
                           <div class="imageContainer">
                             <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
                           </div>
@@ -126,7 +126,7 @@
                             <h3>{{character.name}}</h3>
                             <p>{{character.description}}</p>
                           </div>
-                        </a>
+                        </div>
                       </template>
                     </div>
 
@@ -137,7 +137,7 @@
                   <div class="row-fluid">
                     <div *ngFor="let character of characters; let i=index" class="col-sm-6 col-md-3">
                       <template [ngIf]="i > 3 && i < 8">
-                        <a href="#x" class="thumbnail">
+                        <div (click)="showCharacter(i)" [routerLink]="['/characters/', i]" class="thumbnail">
                           <div class="imageContainer">
                             <img class="bottomTrayThumb" src="{{character.thumbnail}}" alt="Key of the Spire" />
                           </div>
@@ -145,7 +145,7 @@
                             <h3>{{character.name}}</h3>
                             <p>{{character.description}}</p>
                           </div>
-                        </a>
+                        </div>
                       </template>
                     </div>
                   </div><!--/row-fluid-->
@@ -155,7 +155,7 @@
                   <div class="row-fluid">
                     <div *ngFor="let character of characters; let i=index" class="col-sm-6 col-md-3">
                       <template [ngIf]="i > 7 && i < 12">
-                        <a href="#x" class="thumbnail">
+                        <div (click)="showCharacter(i)" [routerLink]="['/characters/', i]" class="thumbnail">
                           <div class="imageContainer">
                             <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
                           </div>
@@ -163,7 +163,7 @@
                             <h3>{{character.name}}</h3>
                             <p>{{character.description}}</p>
                           </div>
-                        </a>
+                        </div>
                       </template>
                     </div>
                   </div><!--/row-fluid-->
@@ -173,7 +173,7 @@
                   <div class="row-fluid">
                     <div *ngFor="let character of characters; let i=index" class="col-sm-6 col-md-3">
                       <template [ngIf]="i > 11 && i < 16">
-                        <a href="#x" class="thumbnail">
+                        <div (click)="showCharacter(i)" [routerLink]="['/characters/', i]" class="thumbnail">
                           <div class="imageContainer">
                             <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
                           </div>
@@ -181,7 +181,7 @@
                             <h3>{{character.name}}</h3>
                             <p>{{character.description}}</p>
                           </div>
-                        </a>
+                        </div>
                       </template>
                     </div>
                   </div><!--/row-fluid-->
