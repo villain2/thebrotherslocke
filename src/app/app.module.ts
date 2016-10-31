@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
+import {WindowRefService} from './window-ref.service';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -37,6 +38,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     JsonpModule
   ],
   providers: [
+    WindowRefService,
     appRoutingProviders
   ],
   bootstrap: [AppComponent]

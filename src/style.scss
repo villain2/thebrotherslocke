@@ -33,7 +33,7 @@ body {
       font-weight: bold;
       @include gTransition();
       &:hover {
-        color: white;
+        color: #c0c0c0;
         border-bottom: 1px solid #ffffff;
       }
     }

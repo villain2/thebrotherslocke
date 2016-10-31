@@ -23,7 +23,7 @@ body {
     -webkit-transition: all .5s;
     transition: all .50s; }
     #header .navbar-default .navbar-nav > li > a:hover {
-      color: white;
+      color: #c0c0c0;
       border-bottom: 1px solid #ffffff; }
 
 .mainSocialLinks {
