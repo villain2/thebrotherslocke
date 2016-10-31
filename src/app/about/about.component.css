@@ -1,0 +1,38 @@
+.aboutSections {
+  margin-top: -200px;
+  padding-bottom: 50px; }
+  .aboutSections h1 {
+    font-size: 3em;
+    font-weight: bold; }
+  .aboutSections img {
+    width: 100%;
+    height: auto; }
+  .aboutSections p {
+    font-size: 1.25em;
+    color: floralwhite; }
+    .aboutSections p a {
+      color: #333;
+      text-decoration: none; }
+      .aboutSections p a:hover {
+        text-decoration: underline; }
+  .aboutSections.a_tall_tale, .aboutSections.familiar_world, .aboutSections.dangerous_history {
+    padding-top: 200px;
+    background: #E7E7E7; }
+    .aboutSections.a_tall_tale p, .aboutSections.familiar_world p, .aboutSections.dangerous_history p {
+      color: #25414c; }
+  .aboutSections.familiar_world {
+    margin-top: 0;
+    padding-top: 50px;
+    background: goldenrod; }
+    .aboutSections.familiar_world p {
+      color: #232323; }
+  .aboutSections.dangerous_history {
+    margin-top: 0;
+    padding-top: 50px;
+    background: #000; }
+    .aboutSections.dangerous_history p {
+      color: #c0c0c0; }
+      .aboutSections.dangerous_history p a {
+        color: #ff0000; }
+        .aboutSections.dangerous_history p a:hover {
+          color: #c42020; }

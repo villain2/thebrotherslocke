@@ -1,6 +1,7 @@
 import {AfterViewInit, ViewChild } from '@angular/core';
 import {Component, OnInit} from '@angular/core';
 import { FooterComponent } from './footer/footer.component';
+import { WindowRef } from './WindowRef';
 import './rxjs-operators';
 
 
