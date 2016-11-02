@@ -40,7 +40,7 @@ export class FooterComponent implements OnInit {
 
   errorMessage: String;
   episodes:Episode[];
-  characters:Character[]
+  characters:Character[];
   episodeImageMargin: Number;
   stateExpression: String;
 

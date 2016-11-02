@@ -32,11 +32,11 @@
                       <template [ngIf]="i<4">
                       <div (click)="showEpisode(i)" [routerLink]="['/episodes/', i]" class="thumbnail">
                         <div class="imageContainer">
-                          <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
+                          <img class="bottomTrayThumb" src="{{episode.thumbnail}}" alt="Key of the Spire" />
                         </div>
                         <div class="caption">
                           <h3>{{episode.id}}: {{episode.title}}</h3>
-                          <p>{{episode.synopsis}}</p>
+                          <div [innerHTML]="episode.synopsis"></div>
                         </div>
                       </div>
                       </template>
@@ -51,11 +51,11 @@
                       <template [ngIf]="i > 3 && i < 8">
                         <div (click)="showEpisode(i)" [routerLink]="['/episodes/', i]" class="thumbnail">
                           <div class="imageContainer">
-                            <img class="bottomTrayThumb" src="../assets/img/key-of-the-spire.jpg" alt="Key of the Spire" />
+                            <img class="bottomTrayThumb" src="{{episode.thumbnail}}" alt="Key of the Spire" />
                           </div>
                           <div class="caption">
                             <h3>{{episode.id}}: {{episode.title}}</h3>
-                            <p>{{episode.synopsis}}</p>
+                            <div [innerHTML]="episode.synopsis"></div>
                           </div>
                         </div>
                       </template>
