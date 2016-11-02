@@ -224,6 +224,11 @@ img.mainLogo {
       margin-top: -50px;
     }
   }
+  .caption {
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+  }
 }
 
 /* Removes the default 20px margin and creates some padding space for the indicators and controls */
