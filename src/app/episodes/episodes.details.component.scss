@@ -1,14 +1,151 @@
-.episodeTitle {
+.episodeHero {
+  width: 100%;
+  height: 100%;
+  margin: -200px 0 0 0;
+  overflow: hidden;
+
   img {
-    width: 300px;
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+  }
+
+  .ep1, .ep2 {
+    z-index: 2;
+    position: absolute;
+    padding: 40% 0 0 10%;
+    h1, h2 {
+      color: #333;
+      font-size: 3em;
+    }
+    h2 {
+      font-weight: 900;
+      font-size: 4.5em;
+      padding: 0 0 0 10%;
+    }
+  }
+
+  .ep2 {
+    h1, h2 {
+      color: #F5F5F5;
+    }
+  }
+
+
+
+  .buyBlock {
+    height: 200px;
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    padding: 40% 0 0 0;
+    text-align: center;
+    font-weight: bold;
+    font-family: Georgia, sans-serif;
+    font-size: 1.55em;
+    color: #F5F5F5;
+    ul {
+      margin-left: -30px;
+      li {
+        img {
+          width: 64px !important;
+          height: 64px !important;
+          min-width: 64px !important;
+          min-height: 64px !important;
+        }
+        list-style: none;
+        display: inline-block;
+      }
+    }
   }
 }
 
-.episodeSynopsis {
-  background: green;
+.episodeDetails {
+  padding: 120px 0 0 0;
+  &.epOne {
+    background: #E9E9E9;
+    color: #333;
+  }
+
+  .episodeSynopsis {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+    padding: 12px 20px;
+  }
+
+  .synopsisImage {
+    margin-top: -120px;
+    img {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+  }
+}
+
+.episodeQuote {
+  padding: 100px 0;
+  background: #613400;
   color: white;
-  width: 100%;
-  height: 100%;
-  font-size: 1.5em;
-  padding: 12px 20px;
+  text-align: center;
+  blockquote {
+    border: none;
+    font-size: 2.25em;
+    font-family: "Crimson Regular", Georgia, Times, "Times New Roman", serif;
+  }
+  label {
+    text-align: center;
+    color: #f3f4f5;
+    letter-spacing: 1.0125em;
+    padding-top: 20px;
+    border-top: 1px dashed #b22222;
+  }
+}
+
+.episodePurchase {
+  padding: 35px 0;
+  background: url("../assets/img/backgrounds/extra_clean_paper/extra_clean_paper.png") repeat-x center center;
+  color: black;
+
+  img {
+    -moz-box-shadow: -5px 5px 5px #888;
+    -webkit-box-shadow: -5px 5px 5px #888;
+    box-shadow: -5px 5px 5px #888;
+  }
+
+  h1, h2, h3 {
+    font-weight: bold;
+    line-height: 1.05em;
+    margin: 0;
+    padding: 0;
+  }
+  h2 {
+    font-size: 1.55em;
+  }
+  h3 {
+    font-size: 2.25em;
+    color: #c42020;
+  }
+
+  p {
+    padding: 4px 0 0 0;
+  }
+
+  ul {
+    margin-left: -30px;
+    li {
+      list-style: none;
+      list-style-position: outside;
+      font-size: 1.55em;
+      a {
+        &:hover {
+          text-decoration: none;
+          color: red;
+        }
+      }
+
+    }
+  }
 }

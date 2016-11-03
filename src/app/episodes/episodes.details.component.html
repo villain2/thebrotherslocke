@@ -1,20 +1,71 @@
 <div *ngFor="let episode of episodes; let i=index">
-  <template [ngIf]="i==id">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-        <div class="episodeTitle">
-          <h1>Episode: {{episodeNumber}} | {{episode.title}}</h1>
-          <img src="{{episode.thumbnail}}" alt="{{episode.title}}" role="img" />
-        </div>
-
+  <template [ngIf]="i==id">\
+    <div class="row episodeHero">
+      <div class="ep{{episode.id}}">
+        <h1>Episode: {{episodeNumber}}</h1>
+        <h2>{{episode.title}}</h2>
       </div>
-      <div class="col-xs-12 col-sm-6">
+
+      <div class="buyBlock">
+        Available Now
+        <ul role="list">
+          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/kindle_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/nook_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/smashwords_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/iBook_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/kobo_button_icon.png" alt="" role="button" /></a></li>
+        </ul>
+      </div>
+
+      <img src="{{episode.thumbnail}}" alt="Episode {{episodeNumber}} thumbnail" role="img" />
+    </div>
+
+    <div class="row episodeDetails epOne">
+      <div class="col-xs-12 col-sm-5 col-sm-offset-1">
         <article class="episodeSynopsis">
           <div [innerHTML]="episode.synopsis"></div>
         </article>
+      </div>
 
+      <div class="col-xs-12 col-sm-6">
+        <div class="synopsisImage">
+          <img src="{{episode.synopsisImage}}" alt="Episode {{episodeNumber}} synopsis image" role="img" />
+        </div>
       </div>
     </div>
+
+    <div class="row episodeQuote">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <blockquote [innerHTML]="episode.quote"></blockquote>
+
+        <label [innerHTML]="episode.quoteLabel"></label>
+      </div>
+    </div>
+
+    <div class="row episodePurchase">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <img src="../assets/img/episodes/episode_{{episodeNumber}}_thumbnail.jpg" alt="Episode {{episodeNumber}} Thumbnail" role="img" />
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <h1>The Brothers Locke</h1>
+        <h2>Episode {{episodeNumber}}: {{episode.title}}</h2>
+        <p><strong>Publish Date: </strong>: January 1, 2017</p>
+        <p><strong>Ages: </strong>: 13+</p>
+        <p><em>Action/Adventures, Young Adult Fantasy Fiction, Fantasy, Young Adult, Teen Fiction, Episodic Fiction</em></p>
+
+        <h3>Download Now On Your Favorite Device</h3>
+
+        <ul role="list">
+          <li role="listitem"><a href="" title="Download on Kindle">Kindle </a></li>
+          <li role="listitem"><a href="" title="Download on Nook">Nook </a></li>
+          <li role="listitem"><a href="" title="Download on Smashwords">Smashwords </a></li>
+          <li role="listitem"><a href="" title="Download on iBook">Apple iBook </a></li>
+          <li role="listitem"><a href="" title="Download on Kobo">Kobo</a></li>
+        </ul>
+      </div>
+    </div>
+
 
   </template>
 </div>

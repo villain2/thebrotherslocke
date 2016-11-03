@@ -1,10 +1,107 @@
-.episodeTitle img {
-  width: 300px; }
-
-.episodeSynopsis {
-  background: green;
-  color: white;
+.episodeHero {
   width: 100%;
   height: 100%;
-  font-size: 1.5em;
-  padding: 12px 20px; }
+  margin: -200px 0 0 0;
+  overflow: hidden; }
+  .episodeHero img {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto; }
+  .episodeHero .ep1, .episodeHero .ep2 {
+    z-index: 2;
+    position: absolute;
+    padding: 40% 0 0 10%; }
+    .episodeHero .ep1 h1, .episodeHero .ep1 h2, .episodeHero .ep2 h1, .episodeHero .ep2 h2 {
+      color: #333;
+      font-size: 3em; }
+    .episodeHero .ep1 h2, .episodeHero .ep2 h2 {
+      font-weight: 900;
+      font-size: 4.5em;
+      padding: 0 0 0 10%; }
+  .episodeHero .ep2 h1, .episodeHero .ep2 h2 {
+    color: #F5F5F5; }
+  .episodeHero .buyBlock {
+    height: 200px;
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    padding: 40% 0 0 0;
+    text-align: center;
+    font-weight: bold;
+    font-family: Georgia, sans-serif;
+    font-size: 1.55em;
+    color: #F5F5F5; }
+    .episodeHero .buyBlock ul {
+      margin-left: -30px; }
+      .episodeHero .buyBlock ul li {
+        list-style: none;
+        display: inline-block; }
+        .episodeHero .buyBlock ul li img {
+          width: 64px !important;
+          height: 64px !important;
+          min-width: 64px !important;
+          min-height: 64px !important; }
+
+.episodeDetails {
+  padding: 120px 0 0 0; }
+  .episodeDetails.epOne {
+    background: #E9E9E9;
+    color: #333; }
+  .episodeDetails .episodeSynopsis {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+    padding: 12px 20px; }
+  .episodeDetails .synopsisImage {
+    margin-top: -120px; }
+    .episodeDetails .synopsisImage img {
+      width: 100%;
+      height: auto;
+      overflow: hidden; }
+
+.episodeQuote {
+  padding: 100px 0;
+  background: #613400;
+  color: white;
+  text-align: center; }
+  .episodeQuote blockquote {
+    border: none;
+    font-size: 2.25em;
+    font-family: "Crimson Regular", Georgia, Times, "Times New Roman", serif; }
+  .episodeQuote label {
+    text-align: center;
+    color: #f3f4f5;
+    letter-spacing: 1.0125em;
+    padding-top: 20px;
+    border-top: 1px dashed #b22222; }
+
+.episodePurchase {
+  padding: 35px 0;
+  background: url("../assets/img/backgrounds/extra_clean_paper/extra_clean_paper.png") repeat-x center center;
+  color: black; }
+  .episodePurchase img {
+    -moz-box-shadow: -5px 5px 5px #888;
+    -webkit-box-shadow: -5px 5px 5px #888;
+    box-shadow: -5px 5px 5px #888; }
+  .episodePurchase h1, .episodePurchase h2, .episodePurchase h3 {
+    font-weight: bold;
+    line-height: 1.05em;
+    margin: 0;
+    padding: 0; }
+  .episodePurchase h2 {
+    font-size: 1.55em; }
+  .episodePurchase h3 {
+    font-size: 2.25em;
+    color: #c42020; }
+  .episodePurchase p {
+    padding: 4px 0 0 0; }
+  .episodePurchase ul {
+    margin-left: -30px; }
+    .episodePurchase ul li {
+      list-style: none;
+      list-style-position: outside;
+      font-size: 1.55em; }
+      .episodePurchase ul li a:hover {
+        text-decoration: none;
+        color: red; }
