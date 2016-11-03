@@ -5,56 +5,94 @@
       "title": "Solas",
       "synopsis": "<p>Mouth, Echo and Sharp Locke &ndash; identical triplets who call themselves \"Master Thieves\" &ndash; are hired to steal an object from <em>The Miscellany</em> in the city of Avidity. They soon found out what they've stolen is more trouble than they bargained for.</p>",
       "thumbnail": "../assets/img/key-of-the-spire.jpg",
-      "KindleLink": ""
+      "synopsisImage": "../assets/img/characters/dana-hero.jpg",
+      "quote": "Do not be mad,<br>You shouldn’t be sad.<br>Do not pursue,<br>We’re smarter than you.<br><br><br>Please don’t sob,<br>You’ve only been robbed,<br>Much to your shock,<br>By the Brothers Locke.",
+      "quoteLabel": "- a courtesy note left by <em>The Brothers Locke</em>",
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     },
     {
       "id": 2,
       "title": "Dangerous Burdens",
       "synopsis": "<p>With few options left, Solas and The Brothers Locke must escape the dangers of Black Harvester Forest. Meanwhile, Sim Sam has sent an unsuspecting security officer on a deadly mission.</p>",
-      "thumbnail": "../assets/img/dangerous-burdens.jpg",
-      "KindleLink": ""
+      "thumbnail": "../assets/img/black-harvester-forest.jpg",
+      "synopsisImage": "../assets/img/von-strauss.jpg",
+      "quote": "“I’ll tell you this, when people have expectations of you because of things other people told them or what they want to believe you are, it’s a burden. A dangerous burden. Some people look to you and see someone who can fix all their problems, and that’s a bad thing. Others look at you and see someone who is a threat.”",
+      "quoteLabel": "- <em>Dana Strand</em>",
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     },
     {
       "id": 3,
       "title": "The Gold of Captain Horsefly",
       "synopsis": "<p>The Crimson Corsairs capture Solas and decide that a trio of <em>Master Thieves</em> are just what they need to find their lost gold.</p>",
       "thumbnail": "../assets/img/horsefly-gold.jpg",
-      "KindleLink": ""
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     },
     {
       "id": 4,
       "title": "You Get Soft, You Get Killed",
       "synopsis": "<p>Finally away from the dangers of the East, Solas and The Brothers Locke head to Pharracrop to get answers and payment for their work.</p>",
       "thumbnail": "../assets/img/dana-sharp.jpg",
-      "KindleLink": ""
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     },
     {
       "id": 5,
       "title": "Old Dreams, New Nightmares",
       "synopsis": "<p>Mouth dreams about his childhood in a home that wasn't happy. Sim Sam's plans start to take shape.</p>",
       "thumbnail": "../assets/img/nightmares.jpg",
-      "KindleLink": ""
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     },
     {
       "id": 6,
       "title": "A Heel Among Us",
       "synopsis": "<p>The team is rocked by stunning revelations about the treasures they've acquired and also the teammates they've worked with.</p>",
       "thumbnail": "../assets/img/heel.jpg",
-      "KindleLink": ""
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     },
     {
       "id": 7,
       "title": "Cacoethes",
       "synopsis": "<p>Bulk Brown finds himself at the mercy of the elements and needing the teenagers to rescue him. Bando and Dana confront their individual and collective histories on their way to The Spire.</p>",
       "thumbnail": "../assets/img/cacoethes.jpg",
-      "KindleLink": ""
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     },
     {
       "id": 8,
       "title": "Children of the Spire",
       "synopsis": "<p>All paths cross in the finale where loyalty, faith, friendship, and brotherhood are all tested in one last reveal that will have consequences for years to come to the entire Dea.</p>",
       "thumbnail": "../assets/img/children-of-the-spire.jpg",
-      "KindleLink": ""
+      "KindleLink": "",
+      "KoboLink": "",
+      "SmashwordsLink": "",
+      "iBookLink": "",
+      "NookLink": ""
     }
   ]
 }
