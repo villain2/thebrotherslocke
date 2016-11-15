@@ -6,6 +6,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { EpisodesComponent } from "./episodes/episodes.component";
 import { EpisodesDetailsComponent } from "./episodes/episodes.details.component";
 import { CharactersDetailsComponent } from "./characters/characters.details.component";
+import {SafeGameComponent} from "./safe-game-old/safe-game.component";
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'episodes', component: EpisodesComponent },
   { path: 'episodes/:id', component: EpisodesDetailsComponent },
-  { path: 'characters/:id', component: CharactersDetailsComponent }
+  { path: 'characters/:id', component: CharactersDetailsComponent },
+  { path: 'safe-game', component: SafeGameComponent }
 ];
 
 export const appRoutingProviders: any[] = [

@@ -16,6 +16,8 @@ import { EpisodesDetailsComponent } from './episodes/episodes.details.component'
 import { CharactersComponent } from './characters/characters.component';
 import { CharactersDetailsComponent } from './characters/characters.details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SafeGameComponent } from './safe-game-old/safe-game.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     EpisodesDetailsComponent,
     CharactersComponent,
     CharactersDetailsComponent,
-    SidebarComponent
+    SidebarComponent,
+    SafeGameComponent
   ],
   imports: [
     BrowserModule,

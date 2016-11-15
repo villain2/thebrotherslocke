@@ -1,3 +1,8 @@
+body, html {
+  height: 100% !important;
+  margin: 0;
+  padding: 0; }
+
 body {
   padding-top: 170px;
   font-family: akrobatregular, sans-serif;
@@ -9,7 +14,6 @@ body {
   src: url("assets/fonts/akrobat-regular-webfont.woff2") format("woff2"), url("/assets/fonts/akrobat-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
-
 #header .navbar-default {
   background: none;
   border: none; }
@@ -72,6 +76,9 @@ body {
 
 /** end login page **/
 /** main page **/
+#mainBody {
+  height: 100%; }
+
 .mainPageBackground img.bg {
   min-height: 100%;
   min-width: 1024px;
@@ -245,13 +252,13 @@ img.mainLogo {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f3e3e+0,000000+100 */
   background: #3f3e3e;
   /* Old browsers */
-  background: -moz-linear-gradient(top, #3f3e3e 0%, black 100%);
+  background: -moz-linear-gradient(top, #3f3e3e 0%, #000000 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #3f3e3e 0%, black 100%);
+  background: -webkit-linear-gradient(top, #3f3e3e 0%, #000000 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #3f3e3e 0%, black 100%);
+  background: linear-gradient(to bottom, #3f3e3e 0%, #000000 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3e3e', endColorstr='#000000',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3e3e', endColorstr='#000000',GradientType=0 );
   /* IE6-9 */
   -moz-box-shadow: 0 0 5px 2px #000;
   -webkit-box-shadow: 0 0 5px 2px #000;
@@ -303,6 +310,10 @@ img.mainLogo {
       .controlsSidebar ul li:on {
         background-color: black;
         color: red; }
+      .controlsSidebar ul li a {
+        color: #ffffff; }
+        .controlsSidebar ul li a:hover {
+          text-decoration: none; }
     .controlsSidebar ul li[data-type="key"] {
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAnCAYAAACfdBHBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjFGRDk1RkVFODczOTExRTZCMDY3OUY1RDY0QzJCRUFGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjFGRDk1RkVGODczOTExRTZCMDY3OUY1RDY0QzJCRUFGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MUZEOTVGRUM4NzM5MTFFNkIwNjc5RjVENjRDMkJFQUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MUZEOTVGRUQ4NzM5MTFFNkIwNjc5RjVENjRDMkJFQUYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6QQyjJAAACSklEQVR42uyZyyvEURTHzXhkwtDIY9hIUWLnUYosWZBQxMbCX8BGaiyVRxY2xJSlFSELU0KxkoVEeT82lPdCJo/4+d46U7fJ7zWuub/BqU9z5/c7p/u9v5lz7pk7NkVRoiLV7FERbP/if5P4WNAFjoESxBtYB81CZmIJK5AMsKQYs1ng/s58NoHVxgmWQBm9vwbjYBn4QSaoAW0ghXz2QD04kv3kvdxTXQO5Kn55YIHzPQj1ExAlvAR8kJgdkKLjbwdj3AIW6ZoU8SMkgi2g2kTcPLeAdhniWd5skIB9EG0iNgvcUOwuSDIzt11QaUylMSuP7yZiL4GXxoWgKtx1nol9obEjhPhZ2gOYlcsQf8I9vWST8ffglcZuGTusj14zQJPJ2BgQTeNXGeKnwS2Ne4HLRGwpLYDZvqxNqpMre3MgxkBMPNimGD8oklHnA2xyC5gBLp0SO8n5T8japBgN4C6o+doDLcAR5FtAn07ATqmpk9KYsSSdAnEq9w/BFngC2aACJHC1vpbuh70xawQvX7S8y+BWpy1eBfmhzi1C+PMXoobpfg7wUJd5AR7AOXWVraE0Y6LEqwkfUvF3gjSQICrPwiX8R9BzSAaxBoUPhlO4nvgKcAZWQKrVhGuJr6TkChhbQIeVhGvV+SuQbqDSDoJuWec2auIVqwvX6ipHrS5cb4f1qeyKA7K+40YTto77Ycxbv1WEayXsI0gMutYPeqx00Go0YfuAJ1JOic+5sceKwrWefDFooQNQr1XP50WeEv//M/JnxH8KMACnKiT41kUQXgAAAABJRU5ErkJggg=="); }
     .controlsSidebar ul li[data-type="coin"] {
@@ -322,3 +333,5 @@ img.mainLogo {
     left: 50%;
     margin-left: -512px;
     /* 50% */ } }
+
+/*# sourceMappingURL=style.css.map */
