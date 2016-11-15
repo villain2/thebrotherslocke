@@ -1,0 +1,34 @@
+<section class="safeGame" *ngIf="levels.startPage">
+
+  <h1>Key of the Spire</h1>
+  <p>Sharp Locke has entered the private safe of Avidity where a particular item, the Key of the Spire, is locked away.</p>
+  <p>In order to obtain the Key you must hack the five (5) locks in place.</p>
+
+  <div class="startButton" (click)="startGame()">START</div>
+</section>
+
+
+<section class="safeGame" *ngIf="levels.lockOne">
+  <div class="instructions" *ngIf="instructionsOn">
+    <h1>Instructions</h1>
+    <p>Match the blocks in all three pillars to unlock a chamber.
+      Unlock all three chambers to to crack the lock.</p>
+
+    <p class="alert">Be careful with rolling over each block as it increases the <em>Suspicion Level</em> of the system.
+      The Suspicion Level will rise each time a block is engaged.
+      If the Suspicion Level reaches the top, or you run out of time, you will be caught by Avidity authorities.</p>
+
+    <p>When you are ready, click <strong><a (click)="beginGame()">begin</a></strong></p>
+  </div>
+
+  <div class="lock">
+    <div class="videoBg">
+      <video width="100%" height="100%" autoplay loop class="videoBgFull">
+        <source src="assets/videos/hacking.mp4" type="video/mp4">
+        <source src="assets/videos/hacking.ogv" type="video/ogv">
+      </video>
+    </div>
+
+    <!--<app-lock-one></app-lock-one>-->
+  </div>
+</section>

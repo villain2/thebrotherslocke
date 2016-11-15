@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,EAAG;EACD,KAAK,EAAE,IAAI",
+"sources": ["safe-game.scss"],
+"names": [],
+"file": "safe-game.css"
+}
