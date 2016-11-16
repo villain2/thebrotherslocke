@@ -17,6 +17,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { CharactersDetailsComponent } from './characters/characters.details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SafeGameComponent } from './safe-game-old/safe-game.component';
+import { LockOneComponent } from './safe-game-old/lock-one/lock-one.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SafeGameComponent } from './safe-game-old/safe-game.component';
     CharactersComponent,
     CharactersDetailsComponent,
     SidebarComponent,
-    SafeGameComponent
+    SafeGameComponent,
+    LockOneComponent
   ],
   imports: [
     BrowserModule,

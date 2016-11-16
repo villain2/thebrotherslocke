@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { LockOne } from '../safe-game-old/lock-one/lock-one.component';
+import { LockOneComponent } from '../safe-game-old/lock-one/lock-one.component';
+import { LockOne } from '../safe-game-old/lock-one/lock-one';
 
 @Component({
   moduleId: module.id,
@@ -20,6 +21,8 @@ export class SafeGameComponent implements OnInit {
   private lockManifest: string;
   private levels: any;
   private instructionsOn: boolean;
+  lockOne: LockOne;
+  lockOneComponent: LockOneComponent;
 
   ngOnInit() {
     this.life   = true;
