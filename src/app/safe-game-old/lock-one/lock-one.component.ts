@@ -34,8 +34,15 @@ export class LockOneComponent implements OnInit {
   private frames: number  = 0;
 
   //mouse tracking
-  private isMouseDown: boolean  = false;
-  private mousePos: any   = {x:0, y:0};
+  private isMouseDown: boolean    = false;
+  private mousePos: any           = {x:0, y:0};
+  private maxClicks: number       = 3;
+  private currentClicks: number   = 0;
+
+  //
+  private timeout: any;
+  private disableMouse: boolean     = false;
+  private answerArray: any          = [];
 
 
   @ViewChild("world") world: ElementRef;
@@ -45,27 +52,91 @@ export class LockOneComponent implements OnInit {
   {
     this.mousePos.x     = event.layerX;
     this.mousePos.y     = event.layerY;
+    var len               = this.panels.length;
+
+    if(this.disableMouse == false)
+    {
+      //loop through all the panels to find which one we're one if any
+      for (var i = 0; i < len; i++)
+      {
+        if( (this.mousePos.x > this.panels[i].x)
+          && (this.mousePos.x < this.panels[i].x + this.lockOne.panelWidth)
+          && (this.mousePos.y > this.panels[i].y)
+          && (this.mousePos.y < this.panels[i].y + this.lockOne.panelHeight) )
+        {
+          this.panels[i].hover  = true;
+
+          //get column name and set as variables for both the default and change arrays
+          var currentArray      = 'this.lockOne.columnDefault' + this.panels[i].column;
+          var changeArray       = 'this.lockOne.column' + this.panels[i].column;
+
+          //use eval to select and manipulate the array
+          eval(currentArray)[this.panels[i].panelID]     = eval(changeArray)[this.panels[i].panelID];
+        }
+        else
+        {
+          //set to no hover
+          this.panels[i].hover    = false;
+
+          //change back to black if not clicked
+          if(!this.panels[i].clicked)
+          {
+            var currentArray      = 'this.lockOne.columnDefault' + this.panels[i].column;
+            eval(currentArray)[this.panels[i].panelID]     = "empty";
+          }
+        }
+      }
+    }
+    //update canvas
+    this.tick();
   }
 
+  @HostListener('mouseup', ['$event'])
+  mouseUpHandler(event: MouseEvent)
+  {
+    this.checkClicks();
+    let timeoutId = setTimeout(() => {
+      this.disableMouse     = false;
+    }, 1750);
+  }
+
+  /*
+  * Mousedown Handler
+  */
   @HostListener('mousedown', ['$event'])
   mouseDownHandler(event: MouseEvent)
   {
     this.isMouseDown      = true;
     var len               = this.panels.length;
+    console.log(this.panels);
 
      //loop through all the panels to find which one we're one if any
      for (var i = 0; i < len; i++)
      {
-       /*console.log(this.panels[i]);
-       console.log(this.mousePos);*/
        if( (this.mousePos.x > this.panels[i].x) && (this.mousePos.x < this.panels[i].x + this.lockOne.panelWidth) )
        {
          if( (this.mousePos.y > this.panels[i].y) && (this.mousePos.y < this.panels[i].y + this.lockOne.panelHeight) )
          {
            console.log('x and y match');
+           var currentArray    = 'this.lockOne.columnDefault' + this.panels[i].column;
+           var changeArray     = 'this.lockOne.column' + this.panels[i].column;
+
+           eval(currentArray)[this.panels[i].panelID]     = eval(changeArray)[this.panels[i].panelID];
+           console.log(this.panels[i].panelID);
+           console.log(this.lockOne);
+
+           this.panels[i].clicked     = true;
+           this.panels[i].value       = eval(currentArray)[this.panels[i].panelID];
+           console.log(this.panels[i]);
+
+           //add to answer array
+           this.answerArray.push(this.panels[i].value);
+
+           this.currentClicks++;
          }
        }
      }
+    this.tick();
   }
 
   @HostListener('window:resize') onResize(event)
@@ -92,7 +163,6 @@ export class LockOneComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.lockOne);
 
     //flag if we're on mobile
     this.isMobile = !!navigator.userAgent.toLowerCase().match(/ipod|ipad|iphone|android/gi);
@@ -111,7 +181,6 @@ export class LockOneComponent implements OnInit {
       this.context  = this.canvas.getContext('2d');
 
       //register event listeners
-      //document.addEventListener('mousedown', this.docMouseDownHandler, false);
       document.addEventListener('mouseup', this.docMouseUpHandler, false);
       this.canvas.addEventListener('touchstart', this.docTouchStartHandler, false);
       document.addEventListener('touchmove', this.docTouchMoveHandler, false);
@@ -131,8 +200,6 @@ export class LockOneComponent implements OnInit {
       this.canvas.width     = this.stage.width;
       this.canvas.height    = this.stage.height;
     }
-
-
     this.tick();
   }
 
@@ -158,7 +225,7 @@ export class LockOneComponent implements OnInit {
 
     //increase the frame count
     this.frames++;
-    console.log(this.frames);
+    //console.log(this.frames);
 
     //check if a second has passed since last update of FPS
     if (frameTime > this.timeLastSecond + 1000)
@@ -185,15 +252,15 @@ export class LockOneComponent implements OnInit {
       //set x position for all
       xPos1    = ( Math.round(this.canvas.width/7) );
       yPos1    = (50 + this.lockOne.panelHeight) * i + 20;
-      color1   = this.lockOne.columnOne[i];
+      color1   = this.lockOne.columnDefaultOne[i];
       //column 2
       xPos2    = ( Math.round(this.canvas.width/7) * 3 );
       yPos2    = (50 + this.lockOne.panelHeight) * i + 20;
-      color2   = this.lockOne.columnTwo[i];
+      color2   = this.lockOne.columnDefaultTwo[i];
       //column 3
       xPos3    = ( Math.round(this.canvas.width/7) * 5 );
       yPos3    = (50 + this.lockOne.panelHeight) * i + 20;
-      color3   = this.lockOne.columnThree[i];
+      color3   = this.lockOne.columnDefaultThree[i];
 
       //if no color
       if(color1 == "empty") { color1 = "#000000" };
@@ -210,9 +277,12 @@ export class LockOneComponent implements OnInit {
         y: yPos1,
         clicked: false,
         hover: false,
-        value: color1
+        value: color1,
+        column: "One",
+        correct: false,
+        panelID: i
       }
-      this.panels.push(p);
+      if(this.panels.length < 15){ this.panels.push(p); }
 
       this.context.beginPath();
       this.context.rect(xPos2,yPos2,this.lockOne.panelWidth, this.lockOne.panelHeight);
@@ -223,9 +293,12 @@ export class LockOneComponent implements OnInit {
         y: yPos2,
         clicked: false,
         hover: false,
-        value: color2
+        value: color2,
+        column: "Two",
+        correct: false,
+        panelID: i
       }
-      this.panels.push(p);
+      if(this.panels.length < 15){ this.panels.push(p); }
 
       this.context.beginPath();
       this.context.rect(xPos3,yPos3,this.lockOne.panelWidth, this.lockOne.panelHeight);
@@ -236,13 +309,60 @@ export class LockOneComponent implements OnInit {
         y: yPos3,
         clicked: false,
         hover: false,
-        value: color3
+        value: color3,
+        column: "Three",
+        correct: false,
+        panelID: i
       }
-      this.panels.push(p);
+      if(this.panels.length < 15){ this.panels.push(p); }
     }
 
     this.requestAnimFrame ( this.tick );
-    console.log(this.panels);
+    //console.log(this.panels);
+  }
+
+  /**
+   * Check the current clicks and evaluate whether or not the sequence is correct.
+   */
+  checkClicks ()
+  {
+    var correctSequence     = true;
+
+    //reset the current clicks
+    if(this.currentClicks >= this.maxClicks)
+    {
+      console.log('too many clicks! reset!');
+
+      //check if all the click values match
+      for(var c = 0; c < this.answerArray.length; c++)
+      {
+        if(this.answerArray[c] !== this.answerArray[0])
+        {
+          correctSequence     = false;
+        }
+      }
+      console.log(this.answerArray);
+      console.log(correctSequence);debugger;
+
+
+      this.disableMouse       = true;
+      var len       = this.lockOne.columnDefaultOne.length;
+      for (var i = 0; i < len; i++)
+      {
+        var resetValue    = "empty";
+        this.lockOne.columnDefaultOne[i]    = resetValue;
+        this.lockOne.columnDefaultTwo[i]    = resetValue;
+        this.lockOne.columnDefaultThree[i]  = resetValue;
+      }
+      this.currentClicks    = 0;
+
+      //reset panel click values
+      for (var p = 0; p < this.panels.length; p++)
+      {
+        this.panels[p].clicked  = false;
+      }
+    }
+    this.tick();
   }
 
   requestAnimFrame ( tick )
