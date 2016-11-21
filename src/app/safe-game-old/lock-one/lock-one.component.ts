@@ -130,7 +130,10 @@ export class LockOneComponent implements OnInit {
            console.log(this.panels[i]);
 
            //add to answer array
-           this.answerArray.push(this.panels[i].value);
+           var _panelValue, _panelID;
+           _panelValue       = this.panels[i].value;
+           _panelID          = this.panels[i].panelID;
+           this.answerArray.push({_panelValue, _panelID});
 
            this.currentClicks++;
          }
@@ -336,7 +339,7 @@ export class LockOneComponent implements OnInit {
       //check if all the click values match
       for(var c = 0; c < this.answerArray.length; c++)
       {
-        if(this.answerArray[c] !== this.answerArray[0])
+        if(this.answerArray[c][0] !== this.answerArray[0][0])
         {
           correctSequence     = false;
         }
