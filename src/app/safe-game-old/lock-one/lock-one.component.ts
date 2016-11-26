@@ -43,6 +43,7 @@ export class LockOneComponent implements OnInit {
   private timeout: any;
   private disableMouse: boolean     = false;
   private answerArray: any          = [];
+  private correctArray: any         = [];
 
 
   @ViewChild("world") world: ElementRef;
@@ -67,8 +68,8 @@ export class LockOneComponent implements OnInit {
           this.panels[i].hover  = true;
 
           //get column name and set as variables for both the default and change arrays
-          var currentArray      = 'this.lockOne.columnDefault' + this.panels[i].column;
-          var changeArray       = 'this.lockOne.column' + this.panels[i].column;
+          var currentArray      = 'this.lockOne.columnDefaults';
+          var changeArray       = 'this.lockOne.columnAnswers';
 
           //use eval to select and manipulate the array
           eval(currentArray)[this.panels[i].panelID]     = eval(changeArray)[this.panels[i].panelID];
@@ -81,7 +82,10 @@ export class LockOneComponent implements OnInit {
           //change back to black if not clicked
           if(!this.panels[i].clicked)
           {
-            var currentArray      = 'this.lockOne.columnDefault' + this.panels[i].column;
+            var currentArray      = 'this.lockOne.columnDefaults';
+            console.log(currentArray);
+            console.log(eval(currentArray));
+            console.log(this.panels[i]);
             eval(currentArray)[this.panels[i].panelID]     = "empty";
           }
         }
@@ -108,7 +112,7 @@ export class LockOneComponent implements OnInit {
   {
     this.isMouseDown      = true;
     var len               = this.panels.length;
-    console.log(this.panels);
+    //console.log(this.panels);
 
      //loop through all the panels to find which one we're one if any
      for (var i = 0; i < len; i++)
@@ -117,23 +121,24 @@ export class LockOneComponent implements OnInit {
        {
          if( (this.mousePos.y > this.panels[i].y) && (this.mousePos.y < this.panels[i].y + this.lockOne.panelHeight) )
          {
-           console.log('x and y match');
+           //console.log('x and y match');
            var currentArray    = 'this.lockOne.columnDefault' + this.panels[i].column;
            var changeArray     = 'this.lockOne.column' + this.panels[i].column;
 
            eval(currentArray)[this.panels[i].panelID]     = eval(changeArray)[this.panels[i].panelID];
-           console.log(this.panels[i].panelID);
-           console.log(this.lockOne);
+           //console.log(this.panels[i].panelID);
+           //console.log(this.lockOne);
 
            this.panels[i].clicked     = true;
            this.panels[i].value       = eval(currentArray)[this.panels[i].panelID];
-           console.log(this.panels[i]);
+           //console.log(this.panels[i]);
 
            //add to answer array
            var _panelValue, _panelID;
            _panelValue       = this.panels[i].value;
            _panelID          = this.panels[i].panelID;
            this.answerArray.push({_panelValue, _panelID});
+           console.log(this.answerArray);
 
            this.currentClicks++;
          }
@@ -223,7 +228,7 @@ export class LockOneComponent implements OnInit {
   {
     //get current time for this frame
     var frameTime   = new Date().getTime();
-
+    var rowNumber   = 0;
     var p;
 
     //increase the frame count
@@ -245,75 +250,56 @@ export class LockOneComponent implements OnInit {
     //clear canvas of old pixel data
     this.context.clearRect(0,0,this.canvas.width, this.canvas.height);
 
-    //draw each interactive lock panel
-    for (var i = 0; i < this.lockOne.columnOne.length; i++)
-    {
-      var xPos1, yPos1, color1,
-        xPos2, yPos2, color2,
-        xPos3, yPos3, color3;
 
-      //set x position for all
-      xPos1    = ( Math.round(this.canvas.width/7) );
-      yPos1    = (50 + this.lockOne.panelHeight) * i + 20;
-      color1   = this.lockOne.columnDefaultOne[i];
-      //column 2
-      xPos2    = ( Math.round(this.canvas.width/7) * 3 );
-      yPos2    = (50 + this.lockOne.panelHeight) * i + 20;
-      color2   = this.lockOne.columnDefaultTwo[i];
-      //column 3
-      xPos3    = ( Math.round(this.canvas.width/7) * 5 );
-      yPos3    = (50 + this.lockOne.panelHeight) * i + 20;
-      color3   = this.lockOne.columnDefaultThree[i];
+    //draw each interactive lock panel
+    for (var i = 0; i < this.lockOne.columnAnswers.length; i++)
+    {
+      var xPos, yPos, color;
+
+      //console.log(this.lockOne.columnDefaultOne);
+
+      if( (i >= 0) && (i < 5) )
+      {
+        //column 1
+        xPos    = ( Math.round(this.canvas.width/7) );
+        yPos    = (50 + this.lockOne.panelHeight) * rowNumber + 20;
+        color   = this.lockOne.columnDefaults[i];
+      }
+      else if( (i > 4) && ( i < 10) )
+      {
+        //column 2
+        xPos    = ( Math.round(this.canvas.width/7) * 3 );
+        yPos    = (50 + this.lockOne.panelHeight) * rowNumber + 20;
+        color   = this.lockOne.columnDefaults[i];
+      }
+      else if( (i > 9) && (i < 15) )
+      {
+        //column 3
+        xPos    = ( Math.round(this.canvas.width/7) * 5 );
+        yPos    = (50 + this.lockOne.panelHeight) * rowNumber + 20;
+        color   = this.lockOne.columnDefaults[i];
+      }
+
+      rowNumber++;
+      if( rowNumber == 5)
+      {
+        rowNumber   = 0;
+      };
 
       //if no color
-      if(color1 == "empty") { color1 = "#000000" };
-      if(color2 == "empty") { color2 = "#000000" };
-      if(color3 == "empty") { color3 = "#000000" };
+      if(color == "empty") { color = "#000000" };
 
       //draw panels
       this.context.beginPath();
-      this.context.rect(xPos1,yPos1,this.lockOne.panelWidth, this.lockOne.panelHeight);
-      this.context.fillStyle  = color1;
+      this.context.rect(xPos,yPos,this.lockOne.panelWidth, this.lockOne.panelHeight);
+      this.context.fillStyle  = color;
       this.context.fill();
       p = {
-        x: xPos1,
-        y: yPos1,
+        x: xPos,
+        y: yPos,
         clicked: false,
         hover: false,
-        value: color1,
-        column: "One",
-        correct: false,
-        panelID: i
-      }
-      if(this.panels.length < 15){ this.panels.push(p); }
-
-      this.context.beginPath();
-      this.context.rect(xPos2,yPos2,this.lockOne.panelWidth, this.lockOne.panelHeight);
-      this.context.fillStyle  = color2;
-      this.context.fill();
-      p = {
-        x: xPos2,
-        y: yPos2,
-        clicked: false,
-        hover: false,
-        value: color2,
-        column: "Two",
-        correct: false,
-        panelID: i
-      }
-      if(this.panels.length < 15){ this.panels.push(p); }
-
-      this.context.beginPath();
-      this.context.rect(xPos3,yPos3,this.lockOne.panelWidth, this.lockOne.panelHeight);
-      this.context.fillStyle  = color3;
-      this.context.fill();
-      p = {
-        x: xPos3,
-        y: yPos3,
-        clicked: false,
-        hover: false,
-        value: color3,
-        column: "Three",
+        value: color,
         correct: false,
         panelID: i
       }
@@ -321,7 +307,6 @@ export class LockOneComponent implements OnInit {
     }
 
     this.requestAnimFrame ( this.tick );
-    //console.log(this.panels);
   }
 
   /**
@@ -329,41 +314,76 @@ export class LockOneComponent implements OnInit {
    */
   checkClicks ()
   {
-    var correctSequence     = true;
+    var correctSequence;
 
     //reset the current clicks
     if(this.currentClicks >= this.maxClicks)
     {
-      console.log('too many clicks! reset!');
+      this.disableMouse       = true;
+      var len       = this.lockOne.columnAnswers.length;
+
+      for (var i = 0; i < len; i++)
+      {
+        var resetValue    = "empty";
+        this.lockOne.columnAnswers[i]    = resetValue;
+      }
 
       //check if all the click values match
       for(var c = 0; c < this.answerArray.length; c++)
       {
-        if(this.answerArray[c][0] !== this.answerArray[0][0])
+        console.log(this.answerArray[c]._panelValue);
+        if(this.answerArray[c]._panelValue == this.answerArray[0]._panelValue)
         {
-          correctSequence     = false;
+          correctSequence   = true;
+        }
+        else
+        {
+          correctSequence   = false;
+          break;
         }
       }
-      console.log(this.answerArray);
-      console.log(correctSequence);debugger;
+      console.log(correctSequence);
 
-
-      this.disableMouse       = true;
-      var len       = this.lockOne.columnDefaultOne.length;
-      for (var i = 0; i < len; i++)
+      if(correctSequence == true)
       {
-        var resetValue    = "empty";
-        this.lockOne.columnDefaultOne[i]    = resetValue;
-        this.lockOne.columnDefaultTwo[i]    = resetValue;
-        this.lockOne.columnDefaultThree[i]  = resetValue;
+        alert('CORRECT SEQUENCE!!!!');
+        //if correctSequence is true, set the base data to reflect the matched panels
+        //on the next tick
+        var answerFlag    = this.answerArray[0]._panelValue;
+
+        this.lockOne.columnAnswers[this.answerArray[0]._panelID]     = answerFlag;
+
+        //update correct array
+        this.correctArray.push(this.answerArray[0]._panelID);
+        this.correctArray.push(this.answerArray[1]._panelID + 5);
+        this.correctArray.push(this.answerArray[2]._panelID + 10);
       }
-      this.currentClicks    = 0;
+
+      console.log(this.panels);
+      console.log(this.correctArray);debugger;
 
       //reset panel click values
-      for (var p = 0; p < this.panels.length; p++)
+      for (var p = 0; p < this.lockOne.columnAnswers.length; p++)
       {
-        this.panels[p].clicked  = false;
+        var level1, level2, level3;
+        level1    = p;
+        level2    = p+5;
+        level3    = p+10;
+
+        this.panels[p].clicked        = false;
+        this.panels[p+5].clicked      = false;
+        this.panels[p+10].clicked     = false;
+
+        if( level1 == this.correctArray[0]) { this.panels[p].clicked    = true; alert(1); }
+        if( level2 == this.correctArray[1]) { this.panels[p+5].clicked    = true; alert(2); }
+        if( level3 == this.correctArray[2]) { this.panels[p+10].clicked    = true; alert(3); }
+
+
       }
+
+      //reset answer array
+      this.currentClicks    = 0;
+      this.answerArray    = [];
     }
     this.tick();
   }
