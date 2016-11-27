@@ -83,9 +83,6 @@ export class LockOneComponent implements OnInit {
           if(!this.panels[i].clicked)
           {
             var currentArray      = 'this.lockOne.columnDefaults';
-            console.log(currentArray);
-            console.log(eval(currentArray));
-            console.log(this.panels[i]);
             eval(currentArray)[this.panels[i].panelID]     = "empty";
           }
         }
@@ -112,7 +109,6 @@ export class LockOneComponent implements OnInit {
   {
     this.isMouseDown      = true;
     var len               = this.panels.length;
-    //console.log(this.panels);
 
      //loop through all the panels to find which one we're one if any
      for (var i = 0; i < len; i++)
@@ -122,8 +118,8 @@ export class LockOneComponent implements OnInit {
          if( (this.mousePos.y > this.panels[i].y) && (this.mousePos.y < this.panels[i].y + this.lockOne.panelHeight) )
          {
            //console.log('x and y match');
-           var currentArray    = 'this.lockOne.columnDefault' + this.panels[i].column;
-           var changeArray     = 'this.lockOne.column' + this.panels[i].column;
+           var currentArray    = 'this.lockOne.columnDefaults';
+           var changeArray     = 'this.lockOne.columnAnswers';
 
            eval(currentArray)[this.panels[i].panelID]     = eval(changeArray)[this.panels[i].panelID];
            //console.log(this.panels[i].panelID);
@@ -303,7 +299,9 @@ export class LockOneComponent implements OnInit {
         correct: false,
         panelID: i
       }
+      console.log(i);
       if(this.panels.length < 15){ this.panels.push(p); }
+      console.log(this.panels);debugger;
     }
 
     this.requestAnimFrame ( this.tick );
@@ -365,7 +363,7 @@ export class LockOneComponent implements OnInit {
       //reset panel click values
       for (var p = 0; p < this.lockOne.columnAnswers.length; p++)
       {
-        var level1, level2, level3;
+        /*var level1, level2, level3;
         level1    = p;
         level2    = p+5;
         level3    = p+10;
@@ -376,7 +374,7 @@ export class LockOneComponent implements OnInit {
 
         if( level1 == this.correctArray[0]) { this.panels[p].clicked    = true; alert(1); }
         if( level2 == this.correctArray[1]) { this.panels[p+5].clicked    = true; alert(2); }
-        if( level3 == this.correctArray[2]) { this.panels[p+10].clicked    = true; alert(3); }
+        if( level3 == this.correctArray[2]) { this.panels[p+10].clicked    = true; alert(3); }*/
 
 
       }
