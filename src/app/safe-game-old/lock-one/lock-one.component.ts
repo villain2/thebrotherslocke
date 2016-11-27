@@ -299,9 +299,7 @@ export class LockOneComponent implements OnInit {
         correct: false,
         panelID: i
       }
-      console.log(i);
       if(this.panels.length < 15){ this.panels.push(p); }
-      console.log(this.panels);debugger;
     }
 
     this.requestAnimFrame ( this.tick );
@@ -320,17 +318,11 @@ export class LockOneComponent implements OnInit {
       this.disableMouse       = true;
       var len       = this.lockOne.columnAnswers.length;
 
-      for (var i = 0; i < len; i++)
-      {
-        var resetValue    = "empty";
-        this.lockOne.columnAnswers[i]    = resetValue;
-      }
-
       //check if all the click values match
       for(var c = 0; c < this.answerArray.length; c++)
       {
-        console.log(this.answerArray[c]._panelValue);
-        if(this.answerArray[c]._panelValue == this.answerArray[0]._panelValue)
+        if( (this.answerArray[c]._panelValue == this.answerArray[0]._panelValue)
+          && (this.answerArray[c]._panelValue != "empty") )
         {
           correctSequence   = true;
         }
@@ -340,43 +332,64 @@ export class LockOneComponent implements OnInit {
           break;
         }
       }
-      console.log(correctSequence);
 
       if(correctSequence == true)
       {
-        alert('CORRECT SEQUENCE!!!!');
+        this.correctArray.push(this.answerArray[0]._panelValue);
+
         //if correctSequence is true, set the base data to reflect the matched panels
         //on the next tick
-        var answerFlag    = this.answerArray[0]._panelValue;
+        for(var c = 0; c < this.lockOne.columnAnswers.length; c++)
+        {
+          this.lockOne.columnDefaults[c]    = "empty";
+          this.panels[c].clicked            = false;
 
-        this.lockOne.columnAnswers[this.answerArray[0]._panelID]     = answerFlag;
-
-        //update correct array
-        this.correctArray.push(this.answerArray[0]._panelID);
-        this.correctArray.push(this.answerArray[1]._panelID + 5);
-        this.correctArray.push(this.answerArray[2]._panelID + 10);
+          for(var a = 0; a < this.correctArray.length; a++)
+          {
+            if(this.lockOne.columnAnswers[c] == this.correctArray[a])
+            {
+              this.lockOne.columnDefaults[c]    = this.correctArray[a];
+              this.panels[c].clicked    = true;
+            }
+          }
+        }
       }
-
-      console.log(this.panels);
-      console.log(this.correctArray);debugger;
-
-      //reset panel click values
-      for (var p = 0; p < this.lockOne.columnAnswers.length; p++)
+      else
       {
-        /*var level1, level2, level3;
-        level1    = p;
-        level2    = p+5;
-        level3    = p+10;
+        //set them all to default if there are no correct answers in array
+        if(this.correctArray.length == 0)
+        {
+          for (var a = 0; a < this.lockOne.columnDefaults.length; a++)
+          {
 
-        this.panels[p].clicked        = false;
-        this.panels[p+5].clicked      = false;
-        this.panels[p+10].clicked     = false;
+            this.lockOne.columnDefaults[a]      = "empty";
+            this.panels[a].clicked              = false;
+          }
+        }
+        else
+        {
+          for (var a = 0; a < this.lockOne.columnDefaults.length; a++)
+          {
+            var matched   = false;
+            for (var m = 0; m < this.correctArray.length; m++)
+            {
+              if(this.lockOne.columnDefaults[a] == this.correctArray[m])
+              {
+                this.lockOne.columnDefaults[a]  = this.correctArray[m];
+                this.panels[a].clicked          = true;
+                matched     = true;
+                break;
+              }
+            }
 
-        if( level1 == this.correctArray[0]) { this.panels[p].clicked    = true; alert(1); }
-        if( level2 == this.correctArray[1]) { this.panels[p+5].clicked    = true; alert(2); }
-        if( level3 == this.correctArray[2]) { this.panels[p+10].clicked    = true; alert(3); }*/
-
-
+            //if not match turn to default
+            if(!matched)
+            {
+              this.lockOne.columnDefaults[a]      = "empty";
+              this.panels[a].clicked              = false;
+            }
+          }
+        }
       }
 
       //reset answer array
