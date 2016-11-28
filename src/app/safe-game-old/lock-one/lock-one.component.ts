@@ -395,6 +395,12 @@ export class LockOneComponent implements OnInit {
       //reset answer array
       this.currentClicks    = 0;
       this.answerArray    = [];
+
+      //check if we've completed the stage
+      if(this.correctArray.length == this.lockOne.totalAnswers)
+      {
+        alert("you have opened this lock.");
+      }
     }
     this.tick();
   }
