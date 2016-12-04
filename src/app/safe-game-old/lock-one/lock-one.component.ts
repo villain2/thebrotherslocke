@@ -1,6 +1,7 @@
 import {Component, ElementRef, ViewChild, OnInit, HostListener} from '@angular/core';
 import { LockOneService } from '../lock-one/lock-one.service';
 import { LockOne } from '../lock-one/lock-one';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   moduleId: module.id,
@@ -20,10 +21,11 @@ export class LockOneComponent implements OnInit {
   private DEFAULT_WIDTH: number   = 900;
   private DEFAULT_HEIGHT: number  = 550;
   private FRAMERATE: number       = 60;
-  private rowOnePanels: any;
-  private rowTwoPanels: any;
-  private rowThreePanels: any;
-  private player: any;
+  public unlocked: boolean        = false;
+  public failed: boolean          = false;
+  private failedMessage: string;
+  private failedText: string;
+  private playing: boolean        = true;
   private panels: any   = []; //array of panels to track for mouseclicks
 
   //fps tracking
@@ -40,10 +42,18 @@ export class LockOneComponent implements OnInit {
   private currentClicks: number   = 0;
 
   //
-  private timeout: any;
+  private timer: any;
+  private timerSubscription: any;
+  public ticks: number              = 0;
+  public ticksDisplay: any;
   private disableMouse: boolean     = false;
   private answerArray: any          = [];
   private correctArray: any         = [];
+
+  //game images
+  public bgReady: boolean          = false;
+  public bgImage:any               = new Image();
+  private pool: any;
 
 
   @ViewChild("world") world: ElementRef;
@@ -66,6 +76,10 @@ export class LockOneComponent implements OnInit {
           && (this.mousePos.y < this.panels[i].y + this.lockOne.panelHeight) )
         {
           this.panels[i].hover  = true;
+
+          //increase the meter by meterDifficulty
+          this.lockOne.meter    = this.lockOne.meter + this.lockOne.meterDifficulty;
+          this.checkMeter();
 
           //get column name and set as variables for both the default and change arrays
           var currentArray      = 'this.lockOne.columnDefaults';
@@ -203,6 +217,20 @@ export class LockOneComponent implements OnInit {
       //resize the canvas
       this.canvas.width     = this.stage.width;
       this.canvas.height    = this.stage.height;
+
+      //background image
+      this.bgImage.onload = () =>
+      {
+        console.log('loading');
+        this.bgReady    = true;
+      };
+      this.bgImage.src    = "assets/img/games/keyofthespire/hud_bg.png";
+
+      //start sound
+      this.soundPool(0);
+
+      //create timer
+      this.createTimer();
     }
     this.tick();
   }
@@ -246,6 +274,12 @@ export class LockOneComponent implements OnInit {
     //clear canvas of old pixel data
     this.context.clearRect(0,0,this.canvas.width, this.canvas.height);
 
+    //draw background
+    if(this.bgReady)
+    {
+      this.context.drawImage(this.bgImage, 0, 0);
+    }
+
 
     //draw each interactive lock panel
     for (var i = 0; i < this.lockOne.columnAnswers.length; i++)
@@ -257,7 +291,7 @@ export class LockOneComponent implements OnInit {
       if( (i >= 0) && (i < 5) )
       {
         //column 1
-        xPos    = ( Math.round(this.canvas.width/7) );
+        xPos    = ( Math.round(this.canvas.width/7) + 15 );
         yPos    = (50 + this.lockOne.panelHeight) * rowNumber + 20;
         color   = this.lockOne.columnDefaults[i];
       }
@@ -289,6 +323,8 @@ export class LockOneComponent implements OnInit {
       this.context.beginPath();
       this.context.rect(xPos,yPos,this.lockOne.panelWidth, this.lockOne.panelHeight);
       this.context.fillStyle  = color;
+      this.context.shadowBlur   = 20;
+      this.context.shadowColor  = color;
       this.context.fill();
       p = {
         x: xPos,
@@ -301,6 +337,14 @@ export class LockOneComponent implements OnInit {
       }
       if(this.panels.length < 15){ this.panels.push(p); }
     }
+
+    //draw the meter fill
+    this.context.beginPath();
+    this.context.rect(828,362 - this.lockOne.meter,14,this.lockOne.meter);
+    this.context.fillStyle      = "orange";
+    this.context.shadowBlur     = 10;
+    this.context.shadowColor    = "white";
+    this.context.fill();
 
     this.requestAnimFrame ( this.tick );
   }
@@ -353,6 +397,9 @@ export class LockOneComponent implements OnInit {
             }
           }
         }
+
+        //reduce meter
+        this.lockOne.meter    = this.lockOne.meter - this.lockOne.meterReduce;
       }
       else
       {
@@ -399,10 +446,94 @@ export class LockOneComponent implements OnInit {
       //check if we've completed the stage
       if(this.correctArray.length == this.lockOne.totalAnswers)
       {
-        alert("you have opened this lock.");
+        this.gameOver("success");
       }
     }
     this.tick();
+  }
+
+  soundPool (maxSize)
+  {
+    var size    = maxSize;//max sounds allowed in the pool
+    var pool    = [];
+    this.pool   = pool;
+    var curSound  = 0;
+
+    //populate pool array with current sound
+    var soundtrack    = new Audio("assets/audio/games/keyofthespire/soundtrack.wav");
+    soundtrack.volume   = .35;
+    soundtrack.loop     = true;
+    soundtrack.load();
+
+    //play sound
+    //soundtrack.play();
+
+  }
+
+  checkMeter ()
+  {
+    //see if we hit the max
+    if(this.lockOne.meter >= this.lockOne.meterMax)
+    {
+      this.gameOver("meter");
+    }
+  }
+
+  createTimer ()
+  {
+    this.timer  = Observable.timer(2000,1000);
+    this.timerSubscription   = this.timer.subscribe(t => this.tickerFunc(t));
+  }
+
+  tickerFunc(tick)
+  {
+    this.ticks  = tick;
+    var startingTime          = this.lockOne.timeLimit - this.ticks;
+    var minutes               = Math.floor(startingTime / 60);
+    var displayMinutes        = (minutes >= 10) ? minutes : "0" + minutes;
+    var seconds               = Math.floor(startingTime % 60);
+    var displaySeconds        = (seconds >= 10) ? seconds : "0" + seconds;
+    this.ticksDisplay   = "" + displayMinutes + " : " + displaySeconds + "";
+    if(this.ticks >= this.lockOne.timeLimit)
+    {
+      this.gameOver("time");
+    }
+  }
+
+  /**
+   *
+   * @description Game Over Handler
+   */
+  gameOver (type)
+  {
+    console.log("Game Over!" + type);
+    this.timerSubscription.unsubscribe();
+    switch (type)
+    {
+      case "success":
+        //hide clock
+
+        //close the lock
+
+        //display success message
+        this.unlocked    = true;
+        console.log(this.unlocked);
+
+        break;
+
+      case "time":
+        this.ticksDisplay   = "00:00";
+        this.failed     = true;
+        this.failedMessage  = "Time Is Up!";
+        this.failedText     = "You have been caught by Avidity authorities! Once you escape, you can try again.";
+        break;
+
+      case "meter":
+        this.failed     = true;
+        this.failedMessage  = "You Have Been Detected!";
+        this.failedText     = "Too much tampering with open nodes have alerted the Avidity authorities that someone was in their system. Once you escape, you can try again.";
+        break;
+    }
   }
 
   requestAnimFrame ( tick )

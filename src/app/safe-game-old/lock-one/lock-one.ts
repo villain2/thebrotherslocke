@@ -14,6 +14,9 @@ export class LockOne {
   public useSymbols: boolean = false,
   public totalAnswers: number = 3,
   public correct: boolean = false,
-  public timer: number = 45,
-  public meter: number = 0){}
+  public timeLimit: number = 45,
+  public meter: number = 0,
+  public meterMax: number = 250,
+  public meterReduce: number  = 50,
+  public meterDifficulty: number = 0.5){}
 }
