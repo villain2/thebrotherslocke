@@ -35,6 +35,14 @@ export class LockOneComponent implements OnInit {
   private timeLastSecond  = new Date().getTime();
   private frames: number  = 0;
 
+  //sounds
+  private buttonClickSound: any;
+  private soundtrack: any;
+  private alertSound: any;
+  private successSound: any;
+  private errorSound: any;
+  private successButtonSound: any;
+
   //mouse tracking
   private isMouseDown: boolean    = false;
   private mousePos: any           = {x:0, y:0};
@@ -124,7 +132,7 @@ export class LockOneComponent implements OnInit {
     this.isMouseDown      = true;
     var len               = this.panels.length;
 
-     //loop through all the panels to find which one we're one if any
+     //loop through all the panels to find which one we're on if any
      for (var i = 0; i < len; i++)
      {
        if( (this.mousePos.x > this.panels[i].x) && (this.mousePos.x < this.panels[i].x + this.lockOne.panelWidth) )
@@ -151,6 +159,9 @@ export class LockOneComponent implements OnInit {
            console.log(this.answerArray);
 
            this.currentClicks++;
+
+           //trigger the sound
+           this.buttonClickSound.play();
          }
        }
      }
@@ -379,6 +390,7 @@ export class LockOneComponent implements OnInit {
 
       if(correctSequence == true)
       {
+
         this.correctArray.push(this.answerArray[0]._panelValue);
 
         //if correctSequence is true, set the base data to reflect the matched panels
@@ -400,9 +412,15 @@ export class LockOneComponent implements OnInit {
 
         //reduce meter
         this.lockOne.meter    = this.lockOne.meter - this.lockOne.meterReduce;
+
+        //play sound
+        this.successButtonSound.play();
       }
       else
       {
+        //play error sound
+        this.errorSound.play();
+
         //set them all to default if there are no correct answers in array
         if(this.correctArray.length == 0)
         {
@@ -460,13 +478,37 @@ export class LockOneComponent implements OnInit {
     var curSound  = 0;
 
     //populate pool array with current sound
-    var soundtrack    = new Audio("assets/audio/games/keyofthespire/soundtrack.wav");
-    soundtrack.volume   = .35;
-    soundtrack.loop     = true;
+    var soundtrack                  = new Audio("assets/audio/games/keyofthespire/soundtrack.wav");
+    soundtrack.volume               = .35;
+    soundtrack.loop                 = true;
     soundtrack.load();
 
+    this.buttonClickSound           = new Audio("assets/audio/games/keyofthespire/buttonclick.wav");
+    this.buttonClickSound.volume    = .5;
+    this.buttonClickSound.load();
+
+    //alert
+    this.alertSound                 = new Audio("assets/audio/games/keyofthespire/alert.wav");
+    this.alertSound.volume          = .5;
+    this.alertSound.load();
+
+    //success
+    this.successSound               = new Audio("assets/audio/games/keyofthespire/success.wav");
+    this.successSound.volume        = .5;
+    this.successSound.load();
+
+    //error
+    this.errorSound                 = new Audio("assets/audio/games/keyofthespire/error.wav");
+    this.errorSound.volume          = .5;
+    this.errorSound.load();
+
+    //error
+    this.successButtonSound             = new Audio("assets/audio/games/keyofthespire/button-success.wav");
+    this.successButtonSound.volume      = .5;
+    this.successButtonSound.load();
+
     //play sound
-    //soundtrack.play();
+    soundtrack.play();
 
   }
 
@@ -516,12 +558,14 @@ export class LockOneComponent implements OnInit {
         //close the lock
 
         //display success message
+        this.successSound.play();
         this.unlocked    = true;
         console.log(this.unlocked);
 
         break;
 
       case "time":
+        this.alertSound.play();
         this.ticksDisplay   = "00:00";
         this.failed     = true;
         this.failedMessage  = "Time Is Up!";
@@ -529,6 +573,7 @@ export class LockOneComponent implements OnInit {
         break;
 
       case "meter":
+        this.alertSound.play();
         this.failed     = true;
         this.failedMessage  = "You Have Been Detected!";
         this.failedText     = "Too much tampering with open nodes have alerted the Avidity authorities that someone was in their system. Once you escape, you can try again.";
