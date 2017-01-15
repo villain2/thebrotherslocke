@@ -8,18 +8,18 @@
     min-width: 1024px;
     width: 100%;
     height: auto; }
-  .episodeHero .ep1, .episodeHero .ep2 {
+  .episodeHero .ep1, .episodeHero .ep2, .episodeHero .ep3, .episodeHero .ep4, .episodeHero .ep5, .episodeHero .ep6, .episodeHero .ep7, .episodeHero .ep8 {
     z-index: 2;
     position: absolute;
     padding: 40% 0 0 10%; }
-    .episodeHero .ep1 h1, .episodeHero .ep1 h2, .episodeHero .ep2 h1, .episodeHero .ep2 h2 {
+    .episodeHero .ep1 h1, .episodeHero .ep1 h2, .episodeHero .ep2 h1, .episodeHero .ep2 h2, .episodeHero .ep3 h1, .episodeHero .ep3 h2, .episodeHero .ep4 h1, .episodeHero .ep4 h2, .episodeHero .ep5 h1, .episodeHero .ep5 h2, .episodeHero .ep6 h1, .episodeHero .ep6 h2, .episodeHero .ep7 h1, .episodeHero .ep7 h2, .episodeHero .ep8 h1, .episodeHero .ep8 h2 {
       color: #333;
       font-size: 3em; }
-    .episodeHero .ep1 h2, .episodeHero .ep2 h2 {
+    .episodeHero .ep1 h2, .episodeHero .ep2 h2, .episodeHero .ep3 h2, .episodeHero .ep4 h2, .episodeHero .ep5 h2, .episodeHero .ep6 h2, .episodeHero .ep7 h2, .episodeHero .ep8 h2 {
       font-weight: 900;
       font-size: 4.5em;
       padding: 0 0 0 10%; }
-  .episodeHero .ep2 h1, .episodeHero .ep2 h2 {
+  .episodeHero .ep2 h1, .episodeHero .ep2 h2, .episodeHero .ep3 h1, .episodeHero .ep3 h2, .episodeHero .ep4 h1, .episodeHero .ep4 h2, .episodeHero .ep5 h1, .episodeHero .ep5 h2 {
     color: #F5F5F5; }
   .episodeHero .buyBlock {
     height: 200px;
@@ -105,3 +105,5 @@
       .episodePurchase ul li a:hover {
         text-decoration: none;
         color: red; }
+
+/*# sourceMappingURL=episodes.details.component.css.map */

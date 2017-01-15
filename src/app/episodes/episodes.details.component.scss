@@ -11,7 +11,7 @@
     height: auto;
   }
 
-  .ep1, .ep2 {
+  .ep1, .ep2, .ep3, .ep4, .ep5, .ep6, .ep7, .ep8 {
     z-index: 2;
     position: absolute;
     padding: 40% 0 0 10%;
@@ -26,7 +26,7 @@
     }
   }
 
-  .ep2 {
+  .ep2, .ep3, .ep4, .ep5 {
     h1, h2 {
       color: #F5F5F5;
     }

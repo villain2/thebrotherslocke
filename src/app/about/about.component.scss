@@ -4,7 +4,7 @@
   padding-bottom: 50px;
 
   h1 {
-    font-size: 3em;
+    font-size: 5.25em;
     font-weight: bold;
   }
 
@@ -14,8 +14,9 @@
   }
 
   p {
-    font-size: 1.25em;
+    font: 26px/44px "Crimson Regular",Georgia,Times,"Times New Roman",serif;
     color: floralwhite;
+    margin-bottom: 40px;
     a {
       color: #333;
       text-decoration: none;
@@ -26,7 +27,8 @@
   }
 
   &.a_tall_tale, &.familiar_world, &.dangerous_history {
-    padding-top: 200px;
+    padding: 20em 0;
+    line-height: calc(28px * .75);
     background: #E7E7E7;
     p {
       color: #25414c;
@@ -35,7 +37,6 @@
 
   &.familiar_world {
     margin-top: 0;
-    padding-top: 50px;
     background: goldenrod;
     p {
       color: #232323;
@@ -44,7 +45,6 @@
 
   &.dangerous_history {
     margin-top: 0;
-    padding-top: 50px;
     background: #000;
     p {
       color: #c0c0c0;

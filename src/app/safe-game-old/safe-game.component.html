@@ -4,7 +4,7 @@
   <p>Sharp Locke has entered the private safe of Avidity where a particular item, the Key of the Spire, is locked away.</p>
   <p>In order to obtain the Key you must hack the five (5) locks in place.</p>
 
-  <div class="startButton" (click)="startGame()">START</div>
+  <div class="startButton" (click)="loadGame(1)">START</div>
 </section>
 
 
@@ -22,7 +22,20 @@
   </div>
 
   <div class="lock">
-    <app-lock-one></app-lock-one>
+    <app-lock-one (changeGame)="changeGame($event)"></app-lock-one>
+    <div class="videoBg">
+      <video width="100%" height="100%" autoplay loop class="videoBgFull">
+        <source src="assets/videos/hacking.mp4" type="video/mp4">
+        <source src="assets/videos/hacking.ogv" type="video/ogv">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="safeGame" *ngIf="levels.lockTwo">
+  <h1>LOCK TWO!</h1>
+
+  <div class="lock">
     <div class="videoBg">
       <video width="100%" height="100%" autoplay loop class="videoBgFull">
         <source src="assets/videos/hacking.mp4" type="video/mp4">

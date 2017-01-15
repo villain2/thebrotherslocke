@@ -1,14 +1,13 @@
 <div class="lock stepOne">
   <div class="gameTimer">
     <div class="timerText">{{ticksDisplay}}</div>
-    <p>{{unlocked}}</p>
   </div>
 
   <div class="unlockedContainer" *ngIf="unlocked">
     <div class="message">
       <h1>Success!</h1>
       <p>You have opened this lock! Now proceed to the next.</p>
-      <button class="btn btn-success">Press to Continue</button>
+      <button class="btn btn-success" (click)="getNextLevel(2)">Press to Continue</button>
     </div>
   </div>
 
@@ -16,7 +15,7 @@
     <div class="message">
       <h1>{{failedMessage}}</h1>
       <p>{{failedText}}</p>
-      <button class="btn btn-failed">Press to Restart</button>
+      <button class="btn btn-failed" (click)="resetGame()">Press to Restart</button>
     </div>
   </div>
   <canvas #world></canvas>

@@ -1,7 +1,8 @@
-import {Component, ElementRef, ViewChild, OnInit, HostListener} from '@angular/core';
+import {Component, ElementRef, ViewChild, OnInit, HostListener, Output} from '@angular/core';
 import { LockOneService } from '../lock-one/lock-one.service';
 import { LockOne } from '../lock-one/lock-one';
 import { Observable } from 'rxjs/Rx';
+import {EventEmitter} from "@angular/common/src/facade/async";
 
 @Component({
   moduleId: module.id,
@@ -12,6 +13,7 @@ import { Observable } from 'rxjs/Rx';
 export class LockOneComponent implements OnInit {
 
   lockOne:LockOne   = new LockOne();
+  @Output() changeGame = new EventEmitter();
 
   /** set variables **/
   private canvas: any;
@@ -53,7 +55,7 @@ export class LockOneComponent implements OnInit {
   private timer: any;
   private timerSubscription: any;
   public ticks: number              = 0;
-  public ticksDisplay: any;
+  public ticksDisplay: any          = "00:00";
   private disableMouse: boolean     = false;
   private answerArray: any          = [];
   private correctArray: any         = [];
@@ -189,7 +191,52 @@ export class LockOneComponent implements OnInit {
     this.tick();
   }
 
-  constructor() {}
+  constructor() {
+    //update the game we're playing
+    this.changeGame.emit(1);
+  }
+
+  resetGame ()
+  {
+    //location.reload();
+    this.ticksDisplay   = "00:00";
+    this.failed     = false;
+    this.failedMessage  = "";
+    this.failedText     = "";
+    this.lockOne.columnAnswers = ["yellow", "red", "blue", "empty", "empty",
+      "red", "empty", "empty", "blue", "yellow",
+      "empty", "blue", "red", "yellow", "empty"];
+    this.lockOne.columnDefaults = ["empty", "empty", "empty", "empty", "empty",
+      "empty", "empty", "empty", "empty", "empty",
+      "empty", "empty", "empty", "empty", "empty"];
+    this.lockOne.timeLimit = 45;
+    this.lockOne.meter = 0;
+
+    //reset answer array
+    this.currentClicks    = 0;
+    this.answerArray    = [];
+    this.correctArray   = [];
+
+    console.log(this.panels);
+
+    for(var p = 0; p < this.panels.length; p++)
+    {
+      this.panels[p].clicked     = false;
+      this.panels[p].hover     = false;
+      this.panels[p].correct     = false;
+    }
+
+    console.log(this.panels);
+
+    this.createTimer();
+  }
+
+  getNextLevel (levelNum)
+  {
+    console.log(levelNum);
+    //emit up to the safe game component to change the game loaded
+    this.changeGame.emit(levelNum);
+  }
 
   ngOnInit() {
 
@@ -209,15 +256,6 @@ export class LockOneComponent implements OnInit {
     {
       this.context  = this.canvas.getContext('2d');
 
-      //register event listeners
-      document.addEventListener('mouseup', this.docMouseUpHandler, false);
-      this.canvas.addEventListener('touchstart', this.docTouchStartHandler, false);
-      document.addEventListener('touchmove', this.docTouchMoveHandler, false);
-      document.addEventListener('touchend', this.docTouchEndHandler, false);
-      document.addEventListener('keydown', this.docKeyDownHandler, false);
-      document.addEventListener('keyup', this.docKeyUpHandler, false);
-
-
       //if we're on mobile configure elements
       if ( this.isMobile )
       {
@@ -232,32 +270,20 @@ export class LockOneComponent implements OnInit {
       //background image
       this.bgImage.onload = () =>
       {
-        console.log('loading');
         this.bgReady    = true;
       };
       this.bgImage.src    = "assets/img/games/keyofthespire/hud_bg.png";
 
       //start sound
       this.soundPool(0);
-
-      //create timer
-      this.createTimer();
     }
     this.tick();
   }
 
-  docMouseUpHandler ()
+  startGameTimer ()
   {
-
+    this.createTimer();
   }
-
-  docTouchStartHandler() {}
-  docTouchMoveHandler() {}
-  docTouchEndHandler() {}
-
-
-  docKeyDownHandler() {}
-  docKeyUpHandler() {}
 
   tick()
   {

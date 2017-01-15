@@ -8,11 +8,11 @@
       "synopsisImage": "../assets/img/characters/dana-hero.jpg",
       "quote": "Do not be mad,<br>You shouldn’t be sad.<br>Do not pursue,<br>We’re smarter than you.<br><br><br>Please don’t sob,<br>You’ve only been robbed,<br>Much to your shock,<br>By the Brothers Locke.",
       "quoteLabel": "- a courtesy note left by <em>The Brothers Locke</em>",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "KindleLink": "https://www.amazon.com/gp/product/B01N5GAGT8/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=aoestudios-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01N5GAGT8&linkId=31463419665c306a2f6e398a63c0bf11",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-1-solas-1",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/686663",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-1-solas/id1187355199?mt=11",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125362581?ean=2940153915289"
     },
     {
       "id": 2,
@@ -22,33 +22,39 @@
       "synopsisImage": "../assets/img/von-strauss.jpg",
       "quote": "“I’ll tell you this, when people have expectations of you because of things other people told them or what they want to believe you are, it’s a burden. A dangerous burden. Some people look to you and see someone who can fix all their problems, and that’s a bad thing. Others look at you and see someone who is a threat.”",
       "quoteLabel": "- <em>Dana Strand</em>",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "KindleLink": "https://www.amazon.com/gp/product/B01N9IFVVK/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=aoestudios-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01N9IFVVK&linkId=4da3994469a50be6a79e092eb1f678e1",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-2-dangerous-burdens-1",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/686893",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-2-dangerous/id1185174315?mt=11",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125305167"
     },
     {
       "id": 3,
       "title": "The Gold of Captain Horsefly",
       "synopsis": "<p>The Crimson Corsairs capture Solas and decide that a trio of <em>Master Thieves</em> are just what they need to find their lost gold.</p>",
-      "thumbnail": "../assets/img/horsefly-gold.jpg",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "thumbnail": "../assets/img/crimson-corsairs-ship.jpg",
+      "synopsisImage": "../assets/img/characters/crimson-corsair-symbol.jpg",
+      "quote": "“The Miscellany would likely try to charge me a hefty fee for it. That’s what he does. He negotiates. He politics. He looks for advantages to gain over you. No, I’m not letting my gold go. It’s mine and I want it back”",
+      "quoteLabel": "- <em>Captain Horsefly</em>",
+      "KindleLink": "https://www.amazon.com/gp/product/B01N0X66PK/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=aoestudios-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01N0X66PK&linkId=e6e73de0f621f281abac6583d7ae003f",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-3-the-gold-of-captain-horsefly",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/687910",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-3-gold/id1185173770?mt=11",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125305200"
     },
     {
       "id": 4,
       "title": "You Get Soft, You Get Killed",
       "synopsis": "<p>Finally away from the dangers of the East, Solas and The Brothers Locke head to Pharracrop to get answers and payment for their work.</p>",
-      "thumbnail": "../assets/img/dana-sharp.jpg",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "thumbnail": "../assets/img/dirigible.jpg",
+      "synopsisImage": "../assets/img/dirigible.jpg",
+      "quote": "“Maybe it’s because I’m not burdened with all that visual noise, or that I’m useless in a fight, or maybe it’s just how I was wired. Who knows? I do think I’m able to handle things better than my brothers, that’s for certain.”",
+      "quoteLabel": "- <em>Echo Locke</em>",
+      "KindleLink": "https://www.amazon.com/gp/product/B01NCS1YA8/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=aoestudios-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01NCS1YA8&linkId=de93d2430e6bed8608b32a1ef85365ba",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-4-you-get-soft-you-get-killed-1",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/688453",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-4-you/id1189644476?mt=11",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125397550?ean=2940153926957"
     },
     {
       "id": 5,

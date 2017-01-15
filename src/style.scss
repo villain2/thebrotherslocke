@@ -81,6 +81,27 @@ body {
   }
 }
 
+/** mobile nav **/
+nav.mobileNav {
+  width: 100%;
+  top: 0;
+  z-index: 500;
+  position: fixed;
+  background: white;
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: 700;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    color: red;
+  }
+}
+/** end mobile nav **/
+
 
 /** login page **/
 
@@ -317,8 +338,16 @@ img.mainLogo {
 }
 /** end scroll text **/
 
+
+/** mail form **/
+.subscribeButton {
+  margin: 20px 0 0 0;
+}
+/** end mail form **/
+
 /** controls sidebar **/
 .controlsSidebar {
+  display: none;
   z-index: 10;
   position: absolute;
   width: 225px;
@@ -438,4 +467,33 @@ img.mainLogo {
     left: 50%;
     margin-left: -512px; /* 50% */
   }
+
+  .mainPageText {
+    width: 80%;
+  }
 }
+
+
+@media screen and (max-width: 768px)
+{
+  .navbar-fixed-top, .bottomTray {
+    display: none;
+  }
+  nav.mobileNav {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 400px)
+{
+  .mainPageText {
+    width: 90%;
+    h1 {
+      font-size: 2.55em;
+    }
+    p {
+      font-size: 1em;
+    }
+  }
+}
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LockOneComponent } from '../safe-game-old/lock-one/lock-one.component';
 import { LockOne } from '../safe-game-old/lock-one/lock-one';
 
@@ -9,6 +9,8 @@ import { LockOne } from '../safe-game-old/lock-one/lock-one';
   styleUrls: ['./safe-game.component.css']
 })
 export class SafeGameComponent implements OnInit {
+
+  @ViewChild(LockOneComponent) lockOneComp:LockOneComponent;
 
   constructor() { }
 
@@ -37,17 +39,51 @@ export class SafeGameComponent implements OnInit {
     };
   }
 
-  private startGame ()
+  changeGame (gameNum)
   {
+    console.log('change game to: ' + gameNum);
+    this.loadGame(gameNum);
+  }
+
+  private loadGame (gameNum)
+  {
+    //reset all
     this.levels.startPage     = false;
-    this.levels.lockOne       = true;
+    this.levels.lockOne       = false;
+    this.levels.lockTwo       = false;
+    this.levels.lockThree       = false;
+    this.levels.lockFour       = false;
+    this.levels.lockFive       = false;
+
+    switch (gameNum)
+    {
+      case 1:
+        this.levels.lockOne       = true;
+        break;
+
+      case 2:
+        this.levels.lockTwo       = true;
+        break;
+
+      case 3:
+        this.levels.lockThree       = true;
+        break;
+
+      case 4:
+        this.levels.lockFour       = true;
+        break;
+
+      case 5:
+        this.levels.lockFive       = true;
+        break;
+    }
   }
 
   /** start the game on click **/
   private beginGame ()
   {
     this.instructionsOn       = false;
-
+    this.lockOneComp.startGameTimer();
   }
 
 }

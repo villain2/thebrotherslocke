@@ -1,19 +1,36 @@
 <div *ngFor="let episode of episodes; let i=index">
-  <template [ngIf]="i==id">\
+  <template [ngIf]="i==id">
     <div class="row episodeHero">
       <div class="ep{{episode.id}}">
         <h1>Episode: {{episodeNumber}}</h1>
         <h2>{{episode.title}}</h2>
+
+
+
+
+        <!-- Begin MailChimp Signup Form -->
+        <div id="mc_embed_signup" tabindex="-1">
+          <form action="//aoestudios.us14.list-manage.com/subscribe/post?u=7be29fbbc5a0c36473711812a&amp;id=d07ac32640" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" style="width: 300px !important;" required>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7be29fbbc5a0c36473711812a_d07ac32640" tabindex="-1" value=""></div>
+              <div class="clear"><input type="submit" value="Get Episodes 1&2 Free" name="subscribe" id="mc-embedded-subscribe" class="btn btn-raised btn-lg btn-info subscribeButton"></div>
+            </div>
+          </form>
+        </div>
+
+        <!--End mc_embed_signup-->
       </div>
 
       <div class="buyBlock">
         Available Now
         <ul role="list">
-          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/kindle_button_icon.png" alt="" role="button" /></a></li>
-          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/nook_button_icon.png" alt="" role="button" /></a></li>
-          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/smashwords_button_icon.png" alt="" role="button" /></a></li>
-          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/iBook_button_icon.png" alt="" role="button" /></a></li>
-          <li role="listitem"><a href="" title=""><img src="../assets/img/buttons/kobo_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="{{episode.KindleLink}}" title="{{episode.title}}" target="_blank"><img src="../assets/img/buttons/kindle_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="{{episode.NookLink}}" title="{{episode.title}}" target="_blank"><img src="../assets/img/buttons/nook_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="{{episode.SmashwordsLink}}" title="{{episode.title}}" target="_blank"><img src="../assets/img/buttons/smashwords_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="{{episode.iBookLink}}" title="{{episode.title}}" target="_blank"><img src="../assets/img/buttons/iBook_button_icon.png" alt="" role="button" /></a></li>
+          <li role="listitem"><a href="{{episode.KoboLink}}" title="{{episode.title}}" target="_blank"><img src="../assets/img/buttons/kobo_button_icon.png" alt="" role="button" /></a></li>
         </ul>
       </div>
 
@@ -43,25 +60,25 @@
     </div>
 
     <div class="row episodePurchase">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-        <img src="../assets/img/episodes/episode_{{episodeNumber}}_thumbnail.jpg" alt="Episode {{episodeNumber}} Thumbnail" role="img" />
+      <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+        <img src="../assets/img/episodes/episode{{episodeNumber}}-cover.jpg" alt="Episode {{episodeNumber}} Thumbnail" role="img" />
       </div>
 
       <div class="col-xs-12 col-sm-6">
         <h1>The Brothers Locke</h1>
         <h2>Episode {{episodeNumber}}: {{episode.title}}</h2>
-        <p><strong>Publish Date: </strong>: January 1, 2017</p>
+        <p><strong>Publish Date: </strong>: January 15, 2017</p>
         <p><strong>Ages: </strong>: 13+</p>
-        <p><em>Action/Adventures, Young Adult Fantasy Fiction, Fantasy, Young Adult, Teen Fiction, Episodic Fiction</em></p>
+        <p><em>Action/Adventures, <a href="www.aoestudios.com" target="_blank">YA Fantasy</a>, Fantasy, Young Adult, Teen Fiction, Episodic Fiction</em></p>
 
         <h3>Download Now On Your Favorite Device</h3>
 
         <ul role="list">
-          <li role="listitem"><a href="" title="Download on Kindle">Kindle </a></li>
-          <li role="listitem"><a href="" title="Download on Nook">Nook </a></li>
-          <li role="listitem"><a href="" title="Download on Smashwords">Smashwords </a></li>
-          <li role="listitem"><a href="" title="Download on iBook">Apple iBook </a></li>
-          <li role="listitem"><a href="" title="Download on Kobo">Kobo</a></li>
+          <li role="listitem"><a href="{{episode.KindleLink}}" title="Download on Kindle" target="_blank">Kindle </a></li>
+          <li role="listitem"><a href="{{episode.NookLink}}" title="Download on Nook" target="_blank">Nook </a></li>
+          <li role="listitem"><a href="{{episode.SmashwordsLink}}" title="Download on Smashwords" target="_blank">Smashwords </a></li>
+          <li role="listitem"><a href="{{episode.iBookLink}}" title="Download on iBook" target="_blank">Apple iBook </a></li>
+          <li role="listitem"><a href="{{episode.KoboLink}}" title="Download on Kobo" target="_blank">Kobo</a></li>
         </ul>
       </div>
     </div>
