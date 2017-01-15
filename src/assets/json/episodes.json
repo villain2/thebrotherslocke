@@ -61,44 +61,56 @@
       "title": "Old Dreams, New Nightmares",
       "synopsis": "<p>Mouth dreams about his childhood in a home that wasn't happy. Sim Sam's plans start to take shape.</p>",
       "thumbnail": "../assets/img/nightmares.jpg",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "synopsisImage": "../assets/img/characters/pharracrop.jpg",
+      "quote": "“The path for the believers, those who know the children are sacred, rests not above the frozen skin of the land, nor in the turbulent winds of the sky, but in the veins of The Dea itself. A debt must be paid to the Ostiary with the Gold of Odum in order to pass the gates and onto the heart of The Spire itself.”",
+      "quoteLabel": "- <em>Quote from the text of Icagoro's Shamans</em>",
+      "KindleLink": "https://www.amazon.com/gp/product/B01MR2C902/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=aoestudios-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01MR2C902&linkId=a5c1f950567e3d4d4720e00e566a746b",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-5-old-dreams-new-nightmares",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/690049",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-5-old/id1187364532?mt=11",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125362642?ean=2940153916071"
     },
     {
       "id": 6,
       "title": "A Heel Among Us",
       "synopsis": "<p>The team is rocked by stunning revelations about the treasures they've acquired and also the teammates they've worked with.</p>",
       "thumbnail": "../assets/img/heel.jpg",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "synopsisImage": "../assets/img/characters/bulkbrown.jpg",
+      "quote": "“They say most of the wars between the East and West are sparked by the arrival of these Children. It’s against the law nearly everywhere to bring one into the Dea, but somehow, someway, folks keep doing it.”",
+      "quoteLabel": "- <em>Bando</em>",
+      "KindleLink": "https://www.amazon.com/gp/product/B01NAPHUZZ/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=aoestudios-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01NAPHUZZ&linkId=19776862a89a1a077efaa599796f2647",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-6-a-heel-among-us",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/691987",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-6-heel/id1190065354",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125397757"
     },
     {
       "id": 7,
       "title": "Cacoethes",
       "synopsis": "<p>Bulk Brown finds himself at the mercy of the elements and needing the teenagers to rescue him. Bando and Dana confront their individual and collective histories on their way to The Spire.</p>",
       "thumbnail": "../assets/img/cacoethes.jpg",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "synopsisImage": "../assets/img/characters/snowfield.jpg",
+      "quote": "“The boy was touched, shall we say, by powers more divine than either of us. They say when a man is touched by divinity, only a fool would question it or his loyalty to it. That’s a mistake his prior companions made, and I saw as an opportunity.”",
+      "quoteLabel": "- <em>Sim Sam</em>",
+      "KindleLink": "https://www.amazon.com/gp/product/B01N6PO7OT/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=aoestudios-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01N6PO7OT&linkId=a8c07b554313a653cd3efdf4db41dc7b",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-7-cacoethes",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/692319",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-7-cacoethes/id1190241544",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125408268"
     },
     {
       "id": 8,
       "title": "Children of the Spire",
       "synopsis": "<p>All paths cross in the finale where loyalty, faith, friendship, and brotherhood are all tested in one last reveal that will have consequences for years to come to the entire Dea.</p>",
-      "thumbnail": "../assets/img/children-of-the-spire.jpg",
-      "KindleLink": "",
-      "KoboLink": "",
-      "SmashwordsLink": "",
-      "iBookLink": "",
-      "NookLink": ""
+      "thumbnail": "../assets/img/lake-boat.jpg",
+      "synopsisImage": "../assets/img/characters/spire-sprites.jpg",
+      "quote": "“Doesn't matter, we'll find a way.”",
+      "quoteLabel": "- <em>Sharp Locke</em>",
+      "KindleLink": "https://www.amazon.com/KC-Hunter/e/B007Y535S8/",
+      "KoboLink": "https://www.kobo.com/us/en/ebook/the-brothers-locke-episode-8-children-of-the-spire",
+      "SmashwordsLink": "https://www.smashwords.com/books/view/695596",
+      "iBookLink": "https://itunes.apple.com/us/book/brothers-locke-episode-8-children/id1193693179",
+      "NookLink": "http://www.barnesandnoble.com/w/the-brothers-locke-kc-hunter/1125470036"
     }
   ]
 }
